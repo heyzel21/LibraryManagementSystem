@@ -31,9 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtBxUsername = new System.Windows.Forms.TextBox();
-            this.txBxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.txBxPassword = new System.Windows.Forms.TextBox();
+            this.txtBxUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Maroon;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Controls.Add(this.txBxPassword);
             this.panel2.Controls.Add(this.txtBxUsername);
@@ -62,20 +64,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(384, 411);
             this.panel2.TabIndex = 2;
-            // 
-            // txtBxUsername
-            // 
-            this.txtBxUsername.Location = new System.Drawing.Point(113, 173);
-            this.txtBxUsername.Name = "txtBxUsername";
-            this.txtBxUsername.Size = new System.Drawing.Size(137, 20);
-            this.txtBxUsername.TabIndex = 0;
-            // 
-            // txBxPassword
-            // 
-            this.txBxPassword.Location = new System.Drawing.Point(113, 199);
-            this.txBxPassword.Name = "txBxPassword";
-            this.txBxPassword.Size = new System.Drawing.Size(137, 20);
-            this.txBxPassword.TabIndex = 1;
             // 
             // btnLogin
             // 
@@ -86,6 +74,31 @@
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // txBxPassword
+            // 
+            this.txBxPassword.Location = new System.Drawing.Point(113, 199);
+            this.txBxPassword.Name = "txBxPassword";
+            this.txBxPassword.Size = new System.Drawing.Size(137, 20);
+            this.txBxPassword.TabIndex = 1;
+            // 
+            // txtBxUsername
+            // 
+            this.txtBxUsername.Location = new System.Drawing.Point(113, 173);
+            this.txtBxUsername.Name = "txtBxUsername";
+            this.txtBxUsername.Size = new System.Drawing.Size(137, 20);
+            this.txtBxUsername.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(131, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 31);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "LOGIN";
             // 
             // Login
             // 
@@ -112,6 +125,7 @@
         private System.Windows.Forms.TextBox txtBxUsername;
         private System.Windows.Forms.TextBox txBxPassword;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label label2;
     }
 }
 
