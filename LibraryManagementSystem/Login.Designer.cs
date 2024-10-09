@@ -61,7 +61,6 @@ namespace LibraryManagementSystem
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::LibraryManagementSystem.Properties.Resources.login_logo;
             this.pictureBox1.Image = global::LibraryManagementSystem.Properties.Resources.login_logo1;
             this.pictureBox1.Location = new System.Drawing.Point(113, 109);
             this.pictureBox1.Name = "pictureBox1";
