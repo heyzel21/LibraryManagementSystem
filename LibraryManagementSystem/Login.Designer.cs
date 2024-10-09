@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txBxPassword = new System.Windows.Forms.TextBox();
             this.txtBxUsername = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,17 @@
             this.panel2.Size = new System.Drawing.Size(384, 411);
             this.panel2.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(131, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 31);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "LOGIN page";
+            // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(146, 225);
@@ -88,17 +99,6 @@
             this.txtBxUsername.Name = "txtBxUsername";
             this.txtBxUsername.Size = new System.Drawing.Size(137, 20);
             this.txtBxUsername.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(131, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 31);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "LOGIN";
             // 
             // Login
             // 
