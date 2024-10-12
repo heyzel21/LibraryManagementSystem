@@ -36,8 +36,8 @@ namespace LibraryManagementSystem
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txBxPassword = new System.Windows.Forms.TextBox();
-            this.txtBxUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -73,8 +73,8 @@ namespace LibraryManagementSystem
             this.panel2.BackColor = System.Drawing.Color.Maroon;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Controls.Add(this.txBxPassword);
-            this.panel2.Controls.Add(this.txtBxUsername);
+            this.panel2.Controls.Add(this.txtPassword);
+            this.panel2.Controls.Add(this.txtUsername);
             this.panel2.Location = new System.Drawing.Point(455, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(290, 411);
@@ -101,19 +101,19 @@ namespace LibraryManagementSystem
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txBxPassword
+            // txtPassword
             // 
-            this.txBxPassword.Location = new System.Drawing.Point(83, 206);
-            this.txBxPassword.Name = "txBxPassword";
-            this.txBxPassword.Size = new System.Drawing.Size(137, 20);
-            this.txBxPassword.TabIndex = 1;
+            this.txtPassword.Location = new System.Drawing.Point(83, 206);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(137, 20);
+            this.txtPassword.TabIndex = 1;
             // 
-            // txtBxUsername
+            // txtUsername
             // 
-            this.txtBxUsername.Location = new System.Drawing.Point(83, 180);
-            this.txtBxUsername.Name = "txtBxUsername";
-            this.txtBxUsername.Size = new System.Drawing.Size(137, 20);
-            this.txtBxUsername.TabIndex = 0;
+            this.txtUsername.Location = new System.Drawing.Point(83, 180);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(137, 20);
+            this.txtUsername.TabIndex = 0;
             // 
             // Login
             // 
@@ -139,8 +139,8 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtBxUsername;
-        private System.Windows.Forms.TextBox txBxPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
