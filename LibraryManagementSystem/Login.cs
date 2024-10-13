@@ -6,26 +6,31 @@ namespace LibraryManagementSystem
 {
     public partial class Login : Form
     {
-        private string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
+        private Dashboard dashboard;
         private UserService userService;
+
+        private string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
 
         public Login()
         {
             InitializeComponent();
             userService = new UserService(connectionString);
+            dashboard = new Dashboard();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = this.txtBxUsername.Text;
-            string password = this.txBxPassword.Text;
+            string username = this.txtUsername.Text;
+            string password = this.txtPassword.Text;
 
             try
             {
                 if (userService.Login(username, password))
                 {
                     MessageBox.Show("Login successful!");
-                    // Proceed to the next form or functionality
+
+                    this.Hide();
+                    dashboard.Show();
                 }
                 else
                 {
