@@ -117,6 +117,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="DashboardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DashboardPanel.Designer.cs">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserService.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -128,6 +134,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardPanel.resx">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
