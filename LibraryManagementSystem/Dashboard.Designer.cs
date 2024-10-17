@@ -31,35 +31,22 @@ namespace LibraryManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.dashboardPanel = new LibraryManagementSystem.DashboardPanel();
-
             this.appNameLbl = new System.Windows.Forms.Label();
-
             this.headerPanel = new System.Windows.Forms.Panel();
             this.navPanel = new System.Windows.Forms.Panel();
-            this.headerPanel.SuspendLayout();
-            this.navPanel.SuspendLayout();
-
             this.managePenaltiesBtn = new System.Windows.Forms.Button();
             this.issueReturnBtn = new System.Windows.Forms.Button();
             this.manageStudentsBtn = new System.Windows.Forms.Button();
             this.manageBooksBtn = new System.Windows.Forms.Button();
             this.dashboardBtn = new System.Windows.Forms.Button();
-
             this.profileLbl = new System.Windows.Forms.Label();
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
+            this.dashboardPanel = new LibraryManagementSystem.DashboardPanel();
+            this.headerPanel.SuspendLayout();
+            this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
-
             this.SuspendLayout();
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.headerPanel.Controls.Add(this.appNameLbl);
-            this.headerPanel.Location = new System.Drawing.Point(0, -3);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(986, 66);
-            this.headerPanel.TabIndex = 0;
             // 
             // appNameLbl
             // 
@@ -72,13 +59,14 @@ namespace LibraryManagementSystem
             this.appNameLbl.TabIndex = 0;
             this.appNameLbl.Text = "Library Management System";
             // 
-            // dashboardPanel
+            // headerPanel
             // 
-            this.dashboardPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dashboardPanel.Location = new System.Drawing.Point(237, 60);
-            this.dashboardPanel.Name = "dashboardPanel";
-            this.dashboardPanel.Size = new System.Drawing.Size(752, 500);
-            this.dashboardPanel.TabIndex = 0;
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.headerPanel.Controls.Add(this.appNameLbl);
+            this.headerPanel.Location = new System.Drawing.Point(0, -3);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Size = new System.Drawing.Size(986, 66);
+            this.headerPanel.TabIndex = 0;
             // 
             // navPanel
             // 
@@ -207,12 +195,29 @@ namespace LibraryManagementSystem
             this.profilePictureBox.TabIndex = 2;
             this.profilePictureBox.TabStop = false;
             // 
+            // manageBookPanel
+            // 
+            this.manageBookPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.manageBookPanel.Location = new System.Drawing.Point(237, 60);
+            this.manageBookPanel.Name = "manageBookPanel";
+            this.manageBookPanel.Size = new System.Drawing.Size(746, 500);
+            this.manageBookPanel.TabIndex = 1;
+            // 
+            // dashboardPanel
+            // 
+            this.dashboardPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dashboardPanel.Enabled = false;
+            this.dashboardPanel.Location = new System.Drawing.Point(237, 60);
+            this.dashboardPanel.Name = "dashboardPanel";
+            this.dashboardPanel.Size = new System.Drawing.Size(752, 500);
+            this.dashboardPanel.TabIndex = 0;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 559);
-            this.Controls.Add(this.dashboardPanel);
+            this.Controls.Add(this.manageBookPanel);
             this.Controls.Add(this.navPanel);
             this.Controls.Add(this.headerPanel);
             this.Name = "Dashboard";
@@ -224,12 +229,14 @@ namespace LibraryManagementSystem
             this.navPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
+
         }
 
 
 
         #endregion
         private DashboardPanel dashboardPanel;
+        private ManageBookPanel manageBookPanel;
 
         private Label appNameLbl;
 
