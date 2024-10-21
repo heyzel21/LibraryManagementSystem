@@ -34,7 +34,18 @@ namespace LibraryManagementSystem
             this.bookListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.bookControlPanel = new System.Windows.Forms.Panel();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.quantityLabel = new System.Windows.Forms.Label();
+            this.publishedLabel = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.publishedTextBox = new System.Windows.Forms.TextBox();
+            this.authorTextBox = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.addButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.bookListPanel.SuspendLayout();
             this.bookControlPanel.SuspendLayout();
@@ -48,6 +59,7 @@ namespace LibraryManagementSystem
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.Size = new System.Drawing.Size(487, 442);
             this.booksDataGridView.TabIndex = 0;
+            this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellClick);
             // 
             // bookListPanel
             // 
@@ -72,21 +84,128 @@ namespace LibraryManagementSystem
             // bookControlPanel
             // 
             this.bookControlPanel.BackColor = System.Drawing.Color.White;
-            this.bookControlPanel.Controls.Add(this.addBtn);
+            this.bookControlPanel.Controls.Add(this.clearButton);
+            this.bookControlPanel.Controls.Add(this.deleteButton);
+            this.bookControlPanel.Controls.Add(this.updateButton);
+            this.bookControlPanel.Controls.Add(this.quantityLabel);
+            this.bookControlPanel.Controls.Add(this.publishedLabel);
+            this.bookControlPanel.Controls.Add(this.authorLabel);
+            this.bookControlPanel.Controls.Add(this.titleLabel);
+            this.bookControlPanel.Controls.Add(this.quantityTextBox);
+            this.bookControlPanel.Controls.Add(this.publishedTextBox);
+            this.bookControlPanel.Controls.Add(this.authorTextBox);
+            this.bookControlPanel.Controls.Add(this.titleTextBox);
+            this.bookControlPanel.Controls.Add(this.addButton);
             this.bookControlPanel.Location = new System.Drawing.Point(12, 10);
             this.bookControlPanel.Name = "bookControlPanel";
             this.bookControlPanel.Size = new System.Drawing.Size(207, 484);
             this.bookControlPanel.TabIndex = 2;
             // 
-            // addBtn
+            // clearButton
             // 
-            this.addBtn.Location = new System.Drawing.Point(12, 317);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(75, 23);
-            this.addBtn.TabIndex = 1;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.clearButton.Location = new System.Drawing.Point(104, 346);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(86, 23);
+            this.clearButton.TabIndex = 12;
+            this.clearButton.Text = "CLEAR";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(12, 346);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(86, 23);
+            this.deleteButton.TabIndex = 11;
+            this.deleteButton.Text = "DELETE";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Enabled = false;
+            this.updateButton.Location = new System.Drawing.Point(104, 317);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(86, 23);
+            this.updateButton.TabIndex = 10;
+            this.updateButton.Text = "UPDATE";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // quantityLabel
+            // 
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Location = new System.Drawing.Point(27, 220);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(46, 13);
+            this.quantityLabel.TabIndex = 9;
+            this.quantityLabel.Text = "Quantity";
+            // 
+            // publishedLabel
+            // 
+            this.publishedLabel.AutoSize = true;
+            this.publishedLabel.Location = new System.Drawing.Point(20, 194);
+            this.publishedLabel.Name = "publishedLabel";
+            this.publishedLabel.Size = new System.Drawing.Size(53, 13);
+            this.publishedLabel.TabIndex = 8;
+            this.publishedLabel.Text = "Published";
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Location = new System.Drawing.Point(35, 164);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(38, 13);
+            this.authorLabel.TabIndex = 7;
+            this.authorLabel.Text = "Author";
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Location = new System.Drawing.Point(18, 138);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(55, 13);
+            this.titleLabel.TabIndex = 6;
+            this.titleLabel.Text = "Book Title";
+            // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.Location = new System.Drawing.Point(79, 213);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.quantityTextBox.TabIndex = 5;
+            // 
+            // publishedTextBox
+            // 
+            this.publishedTextBox.Location = new System.Drawing.Point(79, 187);
+            this.publishedTextBox.Name = "publishedTextBox";
+            this.publishedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.publishedTextBox.TabIndex = 4;
+            // 
+            // authorTextBox
+            // 
+            this.authorTextBox.Location = new System.Drawing.Point(79, 161);
+            this.authorTextBox.Name = "authorTextBox";
+            this.authorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.authorTextBox.TabIndex = 3;
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Location = new System.Drawing.Point(79, 135);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.titleTextBox.TabIndex = 2;
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(12, 317);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(86, 23);
+            this.addButton.TabIndex = 1;
+            this.addButton.Text = "ADD";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // ManageBookPanel
             // 
@@ -103,6 +222,7 @@ namespace LibraryManagementSystem
             this.bookListPanel.ResumeLayout(false);
             this.bookListPanel.PerformLayout();
             this.bookControlPanel.ResumeLayout(false);
+            this.bookControlPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -113,6 +233,17 @@ namespace LibraryManagementSystem
         private Panel bookListPanel;
         private Label dgvTitle;
         private Panel bookControlPanel;
-        private Button addBtn;
+        private Button addButton;
+        private TextBox titleTextBox;
+        private TextBox authorTextBox;
+        private TextBox publishedTextBox;
+        private TextBox quantityTextBox;
+        private Label quantityLabel;
+        private Label publishedLabel;
+        private Label authorLabel;
+        private Label titleLabel;
+        private Button updateButton;
+        private Button deleteButton;
+        private Button clearButton;
     }
 }

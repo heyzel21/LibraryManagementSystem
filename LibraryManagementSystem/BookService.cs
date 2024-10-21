@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
@@ -33,15 +29,13 @@ namespace LibraryManagementSystem
                     {
                         while (reader.Read())
                         {
-                            // Create a book object to store book details
-                            Book book = new Book
-                            {
-                                id = reader.GetInt32("id"),
-                                title = reader.GetString("title"),
-                                author = reader.GetString("author"),
-                                publishedDate = reader.GetDateTime("published_date"),
-                                quantity = reader.GetInt32("quantity"),
-                            };
+                            int id = reader.GetInt32("id");
+                            string title = reader.GetString("title");
+                            string author = reader.GetString("author");
+                            DateTime publishedDate = reader.GetDateTime("published_date");
+                            int quantity = reader.GetInt32("quantity");
+
+                            Book book = new Book(id, title, author, publishedDate, quantity);
 
                             // Add the book object to the List
                             booksList.Add(book);
@@ -74,6 +68,61 @@ namespace LibraryManagementSystem
                     cmd.Parameters.AddWithValue("@Author", newBook.author);
                     cmd.Parameters.AddWithValue("@PublishedDate", newBook.publishedDate);
                     cmd.Parameters.AddWithValue("@Quantity", newBook.quantity);
+
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        public void Update(Book newBook)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE books SET title = @Title, author = @Author, published_date = @PublishedDate, quantity = @Quantity WHERE id = @Id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Add parameters to the query to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@Id", newBook.id);
+                    cmd.Parameters.AddWithValue("@Title", newBook.title);
+                    cmd.Parameters.AddWithValue("@Author", newBook.author);
+                    cmd.Parameters.AddWithValue("@PublishedDate", newBook.publishedDate);
+                    cmd.Parameters.AddWithValue("@Quantity", newBook.quantity);
+
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "DELETE FROM books WHERE id=@id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Add parameters to the query to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@id", id);
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
