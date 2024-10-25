@@ -94,6 +94,7 @@ namespace LibraryManagementSystem
             {
                 this.bookService.Delete(this.selectedId);
                 this.RefreshBookDataGridView();
+                MessageBox.Show("Book deleted succesfully");
             } else
             {
                 this.ResetForm();

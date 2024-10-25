@@ -28,5 +28,12 @@ namespace LibraryManagementSystem
             this.dashboardPanel.Visible = false;
             this.manageBookPanel.Visible = false;
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
     }
 }
