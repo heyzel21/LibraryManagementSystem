@@ -47,6 +47,7 @@ namespace LibraryManagementSystem
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
+            this.FormClosing += MainForm_FormClosing;
             // 
             // appNameLbl
             // 
