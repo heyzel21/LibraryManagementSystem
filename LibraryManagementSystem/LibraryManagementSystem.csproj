@@ -98,6 +98,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
+    <Compile Include="BookService.cs" />
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,20 +113,42 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="PromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="DashboardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DashboardPanel.Designer.cs">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBookPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageBookPanel.Designer.cs">
+      <DependentUpon>ManageBookPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserService.cs" />
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBookPanel.resx">
+      <DependentUpon>ManageBookPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardPanel.resx">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -136,6 +166,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manage book.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
