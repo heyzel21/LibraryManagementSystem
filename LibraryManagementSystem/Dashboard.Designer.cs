@@ -41,8 +41,8 @@ namespace LibraryManagementSystem
             this.dashboardBtn = new System.Windows.Forms.Button();
             this.profileLbl = new System.Windows.Forms.Label();
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
-            this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
             this.dashboardPanel = new LibraryManagementSystem.DashboardPanel();
+            this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
             this.headerPanel.SuspendLayout();
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
@@ -154,6 +154,7 @@ namespace LibraryManagementSystem
             this.manageBooksBtn.Text = "MANAGE BOOKS";
             this.manageBooksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.manageBooksBtn.UseVisualStyleBackColor = false;
+            this.manageBooksBtn.Click += new System.EventHandler(this.ManageBooksBtn_Click);
             // 
             // dashboardBtn
             // 
@@ -172,6 +173,7 @@ namespace LibraryManagementSystem
             this.dashboardBtn.Text = "DASHBOARD   ";
             this.dashboardBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dashboardBtn.UseVisualStyleBackColor = false;
+            this.dashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // profileLbl
             // 
@@ -195,14 +197,6 @@ namespace LibraryManagementSystem
             this.profilePictureBox.TabIndex = 2;
             this.profilePictureBox.TabStop = false;
             // 
-            // manageBookPanel
-            // 
-            this.manageBookPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.manageBookPanel.Location = new System.Drawing.Point(237, 60);
-            this.manageBookPanel.Name = "manageBookPanel";
-            this.manageBookPanel.Size = new System.Drawing.Size(746, 500);
-            this.manageBookPanel.TabIndex = 1;
-            // 
             // dashboardPanel
             // 
             this.dashboardPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -212,11 +206,21 @@ namespace LibraryManagementSystem
             this.dashboardPanel.Size = new System.Drawing.Size(752, 500);
             this.dashboardPanel.TabIndex = 0;
             // 
+            // manageBookPanel
+            // 
+            this.manageBookPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.manageBookPanel.Location = new System.Drawing.Point(237, 60);
+            this.manageBookPanel.Name = "manageBookPanel";
+            this.manageBookPanel.Size = new System.Drawing.Size(746, 500);
+            this.manageBookPanel.TabIndex = 1;
+            this.manageBookPanel.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 559);
+            this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.manageBookPanel);
             this.Controls.Add(this.navPanel);
             this.Controls.Add(this.headerPanel);
@@ -236,7 +240,6 @@ namespace LibraryManagementSystem
 
         #endregion
         private DashboardPanel dashboardPanel;
-        private ManageBookPanel manageBookPanel;
 
         private Label appNameLbl;
 
@@ -251,5 +254,6 @@ namespace LibraryManagementSystem
         private Button managePenaltiesBtn;
         private Button issueReturnBtn;
         private Button manageStudentsBtn;
+        private ManageBookPanel manageBookPanel;
     }
 }

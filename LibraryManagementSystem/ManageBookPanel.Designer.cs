@@ -34,6 +34,7 @@ namespace LibraryManagementSystem
             this.bookListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.bookControlPanel = new System.Windows.Forms.Panel();
+            this.dateTimePickerPublished = new System.Windows.Forms.DateTimePicker();
             this.clearButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@ namespace LibraryManagementSystem
             this.authorLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.publishedTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@ namespace LibraryManagementSystem
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.Size = new System.Drawing.Size(487, 442);
             this.booksDataGridView.TabIndex = 0;
-            this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellClick);
+            this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellClick);
             // 
             // bookListPanel
             // 
@@ -84,6 +84,7 @@ namespace LibraryManagementSystem
             // bookControlPanel
             // 
             this.bookControlPanel.BackColor = System.Drawing.Color.White;
+            this.bookControlPanel.Controls.Add(this.dateTimePickerPublished);
             this.bookControlPanel.Controls.Add(this.clearButton);
             this.bookControlPanel.Controls.Add(this.deleteButton);
             this.bookControlPanel.Controls.Add(this.updateButton);
@@ -92,14 +93,22 @@ namespace LibraryManagementSystem
             this.bookControlPanel.Controls.Add(this.authorLabel);
             this.bookControlPanel.Controls.Add(this.titleLabel);
             this.bookControlPanel.Controls.Add(this.quantityTextBox);
-            this.bookControlPanel.Controls.Add(this.publishedTextBox);
             this.bookControlPanel.Controls.Add(this.authorTextBox);
             this.bookControlPanel.Controls.Add(this.titleTextBox);
             this.bookControlPanel.Controls.Add(this.addButton);
             this.bookControlPanel.Location = new System.Drawing.Point(12, 10);
             this.bookControlPanel.Name = "bookControlPanel";
-            this.bookControlPanel.Size = new System.Drawing.Size(207, 484);
+            this.bookControlPanel.Size = new System.Drawing.Size(211, 484);
             this.bookControlPanel.TabIndex = 2;
+            // 
+            // dateTimePickerPublished
+            // 
+            this.dateTimePickerPublished.CustomFormat = "MMMM dd yyyy";
+            this.dateTimePickerPublished.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerPublished.Location = new System.Drawing.Point(60, 192);
+            this.dateTimePickerPublished.Name = "dateTimePickerPublished";
+            this.dateTimePickerPublished.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePickerPublished.TabIndex = 13;
             // 
             // clearButton
             // 
@@ -136,7 +145,7 @@ namespace LibraryManagementSystem
             // quantityLabel
             // 
             this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Location = new System.Drawing.Point(27, 220);
+            this.quantityLabel.Location = new System.Drawing.Point(12, 221);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(46, 13);
             this.quantityLabel.TabIndex = 9;
@@ -145,7 +154,7 @@ namespace LibraryManagementSystem
             // publishedLabel
             // 
             this.publishedLabel.AutoSize = true;
-            this.publishedLabel.Location = new System.Drawing.Point(20, 194);
+            this.publishedLabel.Location = new System.Drawing.Point(5, 195);
             this.publishedLabel.Name = "publishedLabel";
             this.publishedLabel.Size = new System.Drawing.Size(53, 13);
             this.publishedLabel.TabIndex = 8;
@@ -154,7 +163,7 @@ namespace LibraryManagementSystem
             // authorLabel
             // 
             this.authorLabel.AutoSize = true;
-            this.authorLabel.Location = new System.Drawing.Point(35, 164);
+            this.authorLabel.Location = new System.Drawing.Point(20, 165);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(38, 13);
             this.authorLabel.TabIndex = 7;
@@ -163,7 +172,7 @@ namespace LibraryManagementSystem
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(18, 138);
+            this.titleLabel.Location = new System.Drawing.Point(3, 139);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(55, 13);
             this.titleLabel.TabIndex = 6;
@@ -171,30 +180,23 @@ namespace LibraryManagementSystem
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.Location = new System.Drawing.Point(79, 213);
+            this.quantityTextBox.Location = new System.Drawing.Point(60, 217);
             this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.quantityTextBox.Size = new System.Drawing.Size(137, 20);
             this.quantityTextBox.TabIndex = 5;
-            // 
-            // publishedTextBox
-            // 
-            this.publishedTextBox.Location = new System.Drawing.Point(79, 187);
-            this.publishedTextBox.Name = "publishedTextBox";
-            this.publishedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.publishedTextBox.TabIndex = 4;
             // 
             // authorTextBox
             // 
-            this.authorTextBox.Location = new System.Drawing.Point(79, 161);
+            this.authorTextBox.Location = new System.Drawing.Point(60, 165);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.authorTextBox.Size = new System.Drawing.Size(137, 20);
             this.authorTextBox.TabIndex = 3;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(79, 135);
+            this.titleTextBox.Location = new System.Drawing.Point(60, 139);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(137, 20);
             this.titleTextBox.TabIndex = 2;
             // 
             // addButton
@@ -205,7 +207,7 @@ namespace LibraryManagementSystem
             this.addButton.TabIndex = 1;
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addBtn_Click);
+            this.addButton.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // ManageBookPanel
             // 
@@ -236,7 +238,6 @@ namespace LibraryManagementSystem
         private Button addButton;
         private TextBox titleTextBox;
         private TextBox authorTextBox;
-        private TextBox publishedTextBox;
         private TextBox quantityTextBox;
         private Label quantityLabel;
         private Label publishedLabel;
@@ -245,5 +246,6 @@ namespace LibraryManagementSystem
         private Button updateButton;
         private Button deleteButton;
         private Button clearButton;
+        private DateTimePicker dateTimePickerPublished;
     }
 }

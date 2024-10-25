@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
@@ -15,6 +8,25 @@ namespace LibraryManagementSystem
         public Dashboard()
         {
             InitializeComponent();
+            this.HidePanels();
+            this.dashboardPanel.Visible = true;
+        }
+
+        private void DashboardBtn_Click(object sender, EventArgs e)
+        {
+            this.HidePanels();
+            this.dashboardPanel.Visible = true;
+        }
+        private void ManageBooksBtn_Click(object sender, EventArgs e)
+        {
+            this.HidePanels();
+            this.manageBookPanel.Visible = true;
+        }
+
+        private void HidePanels()
+        {
+            this.dashboardPanel.Visible = false;
+            this.manageBookPanel.Visible = false;
         }
     }
 }

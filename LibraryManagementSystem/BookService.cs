@@ -32,7 +32,7 @@ namespace LibraryManagementSystem
                             int id = reader.GetInt32("id");
                             string title = reader.GetString("title");
                             string author = reader.GetString("author");
-                            DateTime publishedDate = reader.GetDateTime("published_date");
+                            DateTime publishedDate = reader.GetDateTime("published_date").Date;
                             int quantity = reader.GetInt32("quantity");
 
                             Book book = new Book(id, title, author, publishedDate, quantity);
