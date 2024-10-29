@@ -43,11 +43,11 @@ namespace LibraryManagementSystem
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.dashboardPanel = new LibraryManagementSystem.DashboardPanel();
             this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
+            this.manageStudentPanel = new LibraryManagementSystem.ManageStudentPanel();
             this.headerPanel.SuspendLayout();
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
-            this.FormClosing += MainForm_FormClosing;
             // 
             // appNameLbl
             // 
@@ -137,6 +137,7 @@ namespace LibraryManagementSystem
             this.manageStudentsBtn.Text = "MANAGE STUDENTS";
             this.manageStudentsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.manageStudentsBtn.UseVisualStyleBackColor = false;
+            this.manageStudentsBtn.Click += new System.EventHandler(this.ManageStudentsBtn_Click);
             // 
             // manageBooksBtn
             // 
@@ -212,9 +213,16 @@ namespace LibraryManagementSystem
             this.manageBookPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.manageBookPanel.Location = new System.Drawing.Point(237, 60);
             this.manageBookPanel.Name = "manageBookPanel";
-            this.manageBookPanel.Size = new System.Drawing.Size(746, 500);
+            this.manageBookPanel.Size = new System.Drawing.Size(744, 503);
             this.manageBookPanel.TabIndex = 1;
-            this.manageBookPanel.Visible = false;
+            // 
+            // manageStudentPanel
+            // 
+            this.manageStudentPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.manageStudentPanel.Location = new System.Drawing.Point(237, 60);
+            this.manageStudentPanel.Name = "manageStudentPanel";
+            this.manageStudentPanel.Size = new System.Drawing.Size(744, 503);
+            this.manageStudentPanel.TabIndex = 2;
             // 
             // Dashboard
             // 
@@ -223,6 +231,7 @@ namespace LibraryManagementSystem
             this.ClientSize = new System.Drawing.Size(983, 559);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.manageBookPanel);
+            this.Controls.Add(this.manageStudentPanel);
             this.Controls.Add(this.navPanel);
             this.Controls.Add(this.headerPanel);
             this.Name = "Dashboard";
@@ -255,6 +264,8 @@ namespace LibraryManagementSystem
         private Button managePenaltiesBtn;
         private Button issueReturnBtn;
         private Button manageStudentsBtn;
+
         private ManageBookPanel manageBookPanel;
+        private ManageStudentPanel manageStudentPanel;
     }
 }

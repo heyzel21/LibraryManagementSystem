@@ -23,17 +23,17 @@ namespace LibraryManagementSystem
             this.manageBookPanel.Visible = true;
         }
 
+        private void ManageStudentsBtn_Click(object sender, EventArgs e)
+        {
+            this.HidePanels();
+            this.manageStudentPanel.Visible = true;
+        }
+
         private void HidePanels()
         {
             this.dashboardPanel.Visible = false;
             this.manageBookPanel.Visible = false;
+            this.manageStudentPanel.Visible = false;
         }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-
     }
 }
