@@ -139,6 +139,7 @@
       <DependentUpon>ManageBookPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="StudentService.cs" />
     <Compile Include="UserService.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
