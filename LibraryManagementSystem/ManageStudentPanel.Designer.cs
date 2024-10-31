@@ -126,13 +126,14 @@ namespace LibraryManagementSystem
             // studentIdNumericUpDown
             // 
             this.studentIdNumericUpDown.Location = new System.Drawing.Point(94, 19);
+            this.studentIdNumericUpDown.Controls[0].Visible = false;
             this.studentIdNumericUpDown.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
             this.studentIdNumericUpDown.Minimum = new decimal(new int[] {
-            1,
+            0,
             0,
             0,
             0});
@@ -320,13 +321,14 @@ namespace LibraryManagementSystem
             // yearLevelNumericUpDown
             // 
             this.yearLevelNumericUpDown.Location = new System.Drawing.Point(94, 46);
+            this.yearLevelNumericUpDown.Controls[0].Visible = false;
             this.yearLevelNumericUpDown.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
             this.yearLevelNumericUpDown.Minimum = new decimal(new int[] {
-            1,
+            0,
             0,
             0,
             0});

@@ -32,6 +32,12 @@ namespace LibraryManagementSystem
             {
                 int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
                 int yearLevel = Convert.ToInt32(Math.Round(this.yearLevelNumericUpDown.Value, 0));
+
+                if (studentId == 0 || yearLevel == 0)
+                {
+                    return;
+                }
+
                 string section = this.sectionTextBox.Text;
                 string firstName = this.firstNameTextBox.Text;
                 string middletName = this.middleNameTextBox.Text;
@@ -39,6 +45,8 @@ namespace LibraryManagementSystem
                 string contactNo = this.contactNoTextBox.Text;
                 string email = this.emailTextBox.Text;
                 string address = this.addressTextBox.Text;
+
+                Console.WriteLine(studentId);
 
                 Student newStudent = new Student(studentId, yearLevel, section, firstName, middletName, lastName, contactNo, email, address);
 
@@ -63,47 +71,52 @@ namespace LibraryManagementSystem
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    int id = selectedId;
-            //    string title = titleTextBox.Text;
-            //    string author = authorTextBox.Text;
-            //    DateTime datePublished = dateTimePickerPublished.Value.Date;
-            //    int quantity = Int32.Parse(quantityTextBox.Text);
+            try
+            {
+                int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
+                int yearLevel = Convert.ToInt32(Math.Round(this.yearLevelNumericUpDown.Value, 0));
+                string section = this.sectionTextBox.Text;
+                string firstName = this.firstNameTextBox.Text;
+                string middletName = this.middleNameTextBox.Text;
+                string lastName = this.lastNameTextBox.Text;
+                string contactNo = this.contactNoTextBox.Text;
+                string email = this.emailTextBox.Text;
+                string address = this.addressTextBox.Text;
 
-            //    Book newBook = new Book(id, title, author, datePublished, quantity);
+                Student updatedStudent = new Student(studentId, yearLevel, section, firstName, middletName, lastName, contactNo, email, address);
 
-            //    bool isConfirmed = this.promptService.ShowConfirmation("Do you want to update this book details?");
-            //    if (isConfirmed)
-            //    {
-            //        this.studentService.Update(newBook);
-            //        this.RefreshStudentDataGridView();
-            //        MessageBox.Show("Student updated succesfully");
-            //    }
-            //    else
-            //    {
-            //        this.ResetForm();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                bool isConfirmed = this.promptService.ShowConfirmation("Do you want to update this student details?");
+                if (isConfirmed)
+                {
+                    this.studentService.Update(updatedStudent);
+                    this.RefreshStudentDataGridView();
+                    MessageBox.Show("Student updated succesfully");
+                }
+                else
+                {
+                    this.ResetForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            //bool isConfirmed = this.promptService.ShowConfirmation("Do you want to delete this book details?");
+            bool isConfirmed = this.promptService.ShowConfirmation("Do you want to delete this student details?");
 
-            //if (isConfirmed)
-            //{
-            //    this.studentService.Delete(this.selectedId);
-            //    this.RefreshStudentDataGridView();
-            //    MessageBox.Show("Student deleted succesfully");
-            //} else
-            //{
-            //    this.ResetForm();
-            //}
+            if (isConfirmed)
+            {
+                this.studentService.Delete(this.selectedId);
+                this.RefreshStudentDataGridView();
+                MessageBox.Show("Student deleted succesfully");
+            }
+            else
+            {
+                this.ResetForm();
+            }
         }
 
         private void RefreshStudentDataGridView()
@@ -114,23 +127,34 @@ namespace LibraryManagementSystem
 
         private void StudentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex < 0) { return; }
+            if (e.RowIndex < 0) { return; }
 
-            //DataGridViewRow row = this.studentsDataGridView.Rows[e.RowIndex];
-            //int id = Int32.Parse(row.Cells["id"].Value.ToString());
-            //string title = row.Cells["title"].Value.ToString();
-            //string author = row.Cells["author"].Value.ToString();
-            //string publishedDate = row.Cells["publishedDate"].Value.ToString();
-            //string quantity = row.Cells["quantity"].Value.ToString();
+            DataGridViewRow row = this.studentsDataGridView.Rows[e.RowIndex];
 
-            //this.selectedId = id;
-            //this.titleTextBox.Text = title;
-            //this.authorTextBox.Text = author;
-            //this.quantityTextBox.Text = quantity;
-            //this.dateTimePickerPublished.Value = DateTime.Parse(publishedDate?.ToString());
+            int id = Int32.Parse(row.Cells["id"].Value.ToString());
+            int studentId = Int32.Parse(row.Cells["studentId"].Value.ToString());
+            int yearLevel = Int32.Parse(row.Cells["yearLevel"].Value.ToString());
+            string section = row.Cells["section"].Value.ToString();
+            string firstName = row.Cells["firstName"].Value.ToString();
+            string middleName = row.Cells["middleName"].Value.ToString();
+            string lastName = row.Cells["lastName"].Value.ToString();
+            string contactNo = row.Cells["contactNo"].Value.ToString();
+            string email = row.Cells["email"].Value.ToString();
+            string address = row.Cells["address"].Value.ToString();
 
-            //this.deleteButton.Enabled = true;
-            //this.updateButton.Enabled = true;
+            this.selectedId = id;
+            this.studentIdNumericUpDown.Value = studentId;
+            this.yearLevelNumericUpDown.Value = yearLevel;
+            this.sectionTextBox.Text = section;
+            this.firstNameTextBox.Text = firstName;
+            this.middleNameTextBox.Text = middleName;
+            this.lastNameTextBox.Text = lastName;
+            this.contactNoTextBox.Text = contactNo;
+            this.emailTextBox.Text = email;
+            this.addressTextBox.Text = address;
+
+            this.deleteButton.Enabled = true;
+            this.updateButton.Enabled = true;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -140,8 +164,8 @@ namespace LibraryManagementSystem
         
         private void ResetForm()
         {
-            this.studentIdNumericUpDown.ResetText();
-            this.yearLevelNumericUpDown.ResetText();
+            this.studentIdNumericUpDown.Value = 0;
+            this.yearLevelNumericUpDown.Value = 0;
             this.sectionTextBox.Text = "";
             this.firstNameTextBox.Text = "";
             this.middleNameTextBox.Text = "";
@@ -149,6 +173,12 @@ namespace LibraryManagementSystem
             this.contactNoTextBox.Text = "";
             this.emailTextBox.Text = "";
             this.addressTextBox.Text = "";
+
+            this.studentIdNumericUpDown.ResetText();
+            this.yearLevelNumericUpDown.ResetText();
+
+            this.deleteButton.Enabled = false;
+            this.updateButton.Enabled = false;
         }
     }
 }
