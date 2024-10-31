@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LibraryManagementSystem
 {
-    internal class BookService
+    public class BookService
     {
         private string connectionString;
 

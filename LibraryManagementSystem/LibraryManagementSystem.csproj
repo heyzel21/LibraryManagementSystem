@@ -112,6 +112,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageStudentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageStudentPanel.Designer.cs">
+      <DependentUpon>ManageStudentPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="PromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,12 +138,17 @@
     <Compile Include="ManageBookPanel.Designer.cs">
       <DependentUpon>ManageBookPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentService.cs" />
     <Compile Include="UserService.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageStudentPanel.resx">
+      <DependentUpon>ManageStudentPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBookPanel.resx">
       <DependentUpon>ManageBookPanel.cs</DependentUpon>
