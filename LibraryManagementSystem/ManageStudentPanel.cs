@@ -73,6 +73,7 @@ namespace LibraryManagementSystem
         {
             try
             {
+                int id = this.selectedId;
                 int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
                 int yearLevel = Convert.ToInt32(Math.Round(this.yearLevelNumericUpDown.Value, 0));
                 string section = this.sectionTextBox.Text;
@@ -83,7 +84,7 @@ namespace LibraryManagementSystem
                 string email = this.emailTextBox.Text;
                 string address = this.addressTextBox.Text;
 
-                Student updatedStudent = new Student(studentId, yearLevel, section, firstName, middletName, lastName, contactNo, email, address);
+                Student updatedStudent = new Student(id, studentId, yearLevel, section, firstName, middletName, lastName, contactNo, email, address);
 
                 bool isConfirmed = this.promptService.ShowConfirmation("Do you want to update this student details?");
                 if (isConfirmed)
@@ -141,7 +142,6 @@ namespace LibraryManagementSystem
             string contactNo = row.Cells["contactNo"].Value.ToString();
             string email = row.Cells["email"].Value.ToString();
             string address = row.Cells["address"].Value.ToString();
-
             this.selectedId = id;
             this.studentIdNumericUpDown.Value = studentId;
             this.yearLevelNumericUpDown.Value = yearLevel;
