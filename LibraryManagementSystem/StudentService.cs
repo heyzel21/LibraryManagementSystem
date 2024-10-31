@@ -98,7 +98,7 @@ namespace LibraryManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE students SET student_id = @StudentId, year_level = @YearLevel, section = @Section, first_name = @FirstName, middle_name = @MiddleName, last_name = @LastName, contact_no = @ContactNo, email = @Email, address = @Address, WHERE id = @Id";
+                    string query = "UPDATE students SET student_id = @StudentId, year_level = @YearLevel, section = @Section, first_name = @FirstName, middle_name = @MiddleName, last_name = @LastName, contact_no = @ContactNo, email = @Email, address = @Address WHERE id = @Id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     // Add parameters to the query to avoid SQL injection
