@@ -42,5 +42,10 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

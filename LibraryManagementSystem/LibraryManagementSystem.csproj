@@ -106,11 +106,23 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePenalties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePenalties.Designer.cs">
+      <DependentUpon>ManagePenalties.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageStudentPanel.cs">
       <SubType>UserControl</SubType>
@@ -144,8 +156,14 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePenalties.resx">
+      <DependentUpon>ManagePenalties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageStudentPanel.resx">
       <DependentUpon>ManageStudentPanel.cs</DependentUpon>
@@ -186,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\manage book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_library_100px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
