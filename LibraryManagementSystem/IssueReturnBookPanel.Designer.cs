@@ -34,6 +34,10 @@ namespace LibraryManagementSystem
             this.issueReturnBookListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.issueReturnBookControlPanel = new System.Windows.Forms.Panel();
+            this.dateReturnDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dateReturnLabel = new System.Windows.Forms.Label();
+            this.viewBookButon = new System.Windows.Forms.Button();
+            this.viewStudentButton = new System.Windows.Forms.Button();
             this.dateBorrowDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.clearButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -44,10 +48,6 @@ namespace LibraryManagementSystem
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.viewStudentButton = new System.Windows.Forms.Button();
-            this.viewBookButon = new System.Windows.Forms.Button();
-            this.dateReturnDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dateReturnLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.issueReturnBooksDataGridView)).BeginInit();
             this.issueReturnBookListPanel.SuspendLayout();
             this.issueReturnBookControlPanel.SuspendLayout();
@@ -104,6 +104,43 @@ namespace LibraryManagementSystem
             this.issueReturnBookControlPanel.Name = "issueReturnBookControlPanel";
             this.issueReturnBookControlPanel.Size = new System.Drawing.Size(211, 484);
             this.issueReturnBookControlPanel.TabIndex = 2;
+            // 
+            // dateReturnDateTimePicker
+            // 
+            this.dateReturnDateTimePicker.CustomFormat = "MMMM dd yyyy";
+            this.dateReturnDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateReturnDateTimePicker.Location = new System.Drawing.Point(67, 246);
+            this.dateReturnDateTimePicker.Name = "dateReturnDateTimePicker";
+            this.dateReturnDateTimePicker.Size = new System.Drawing.Size(137, 20);
+            this.dateReturnDateTimePicker.TabIndex = 17;
+            // 
+            // dateReturnLabel
+            // 
+            this.dateReturnLabel.AutoSize = true;
+            this.dateReturnLabel.Location = new System.Drawing.Point(3, 250);
+            this.dateReturnLabel.Name = "dateReturnLabel";
+            this.dateReturnLabel.Size = new System.Drawing.Size(65, 13);
+            this.dateReturnLabel.TabIndex = 16;
+            this.dateReturnLabel.Text = "Date Return";
+            // 
+            // viewBookButon
+            // 
+            this.viewBookButon.Location = new System.Drawing.Point(67, 187);
+            this.viewBookButon.Name = "viewBookButon";
+            this.viewBookButon.Size = new System.Drawing.Size(137, 23);
+            this.viewBookButon.TabIndex = 15;
+            this.viewBookButon.Text = "View Book";
+            this.viewBookButon.UseVisualStyleBackColor = true;
+            // 
+            // viewStudentButton
+            // 
+            this.viewStudentButton.Location = new System.Drawing.Point(67, 132);
+            this.viewStudentButton.Name = "viewStudentButton";
+            this.viewStudentButton.Size = new System.Drawing.Size(137, 23);
+            this.viewStudentButton.TabIndex = 14;
+            this.viewStudentButton.Text = "View Student";
+            this.viewStudentButton.UseVisualStyleBackColor = true;
+            this.viewStudentButton.Click += new System.EventHandler(this.ViewStudentButton_Click);
             // 
             // dateBorrowDateTimePicker
             // 
@@ -196,42 +233,6 @@ namespace LibraryManagementSystem
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // viewStudentButton
-            // 
-            this.viewStudentButton.Location = new System.Drawing.Point(67, 132);
-            this.viewStudentButton.Name = "viewStudentButton";
-            this.viewStudentButton.Size = new System.Drawing.Size(137, 23);
-            this.viewStudentButton.TabIndex = 14;
-            this.viewStudentButton.Text = "View Student";
-            this.viewStudentButton.UseVisualStyleBackColor = true;
-            // 
-            // viewBookButon
-            // 
-            this.viewBookButon.Location = new System.Drawing.Point(67, 187);
-            this.viewBookButon.Name = "viewBookButon";
-            this.viewBookButon.Size = new System.Drawing.Size(137, 23);
-            this.viewBookButon.TabIndex = 15;
-            this.viewBookButon.Text = "View Book";
-            this.viewBookButon.UseVisualStyleBackColor = true;
-            // 
-            // dateReturnDateTimePicker
-            // 
-            this.dateReturnDateTimePicker.CustomFormat = "MMMM dd yyyy";
-            this.dateReturnDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateReturnDateTimePicker.Location = new System.Drawing.Point(67, 246);
-            this.dateReturnDateTimePicker.Name = "dateReturnDateTimePicker";
-            this.dateReturnDateTimePicker.Size = new System.Drawing.Size(137, 20);
-            this.dateReturnDateTimePicker.TabIndex = 17;
-            // 
-            // dateReturnLabel
-            // 
-            this.dateReturnLabel.AutoSize = true;
-            this.dateReturnLabel.Location = new System.Drawing.Point(3, 250);
-            this.dateReturnLabel.Name = "dateReturnLabel";
-            this.dateReturnLabel.Size = new System.Drawing.Size(65, 13);
-            this.dateReturnLabel.TabIndex = 16;
-            this.dateReturnLabel.Text = "Date Return";
             // 
             // IssueReturnBookPanel
             // 
