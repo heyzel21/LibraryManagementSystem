@@ -29,11 +29,18 @@ namespace LibraryManagementSystem
             this.manageStudentPanel.Visible = true;
         }
 
+        private void IssueReturnBtn_Click(object sender, EventArgs e)
+        {
+            this.HidePanels();
+            this.issueReturnBookPanel.Visible = true;
+        }
+
         private void HidePanels()
         {
             this.dashboardPanel.Visible = false;
             this.manageBookPanel.Visible = false;
             this.manageStudentPanel.Visible = false;
+            this.issueReturnBookPanel.Visible = false;
         }
     }
 }

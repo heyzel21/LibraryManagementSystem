@@ -44,6 +44,7 @@ namespace LibraryManagementSystem
             this.dashboardPanel = new LibraryManagementSystem.DashboardPanel();
             this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
             this.manageStudentPanel = new LibraryManagementSystem.ManageStudentPanel();
+            this.issueReturnBookPanel = new LibraryManagementSystem.IssueReturnBookPanel();
             this.headerPanel.SuspendLayout();
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
@@ -119,6 +120,7 @@ namespace LibraryManagementSystem
             this.issueReturnBtn.Text = "ISSUE / RETURN BOOK";
             this.issueReturnBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.issueReturnBtn.UseVisualStyleBackColor = false;
+            this.issueReturnBtn.Click += new System.EventHandler(this.IssueReturnBtn_Click);
             // 
             // manageStudentsBtn
             // 
@@ -224,6 +226,14 @@ namespace LibraryManagementSystem
             this.manageStudentPanel.Size = new System.Drawing.Size(744, 503);
             this.manageStudentPanel.TabIndex = 2;
             // 
+            // issueReturnBookPanel
+            // 
+            this.issueReturnBookPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.issueReturnBookPanel.Location = new System.Drawing.Point(237, 60);
+            this.issueReturnBookPanel.Name = "issueReturnBookPanel";
+            this.issueReturnBookPanel.Size = new System.Drawing.Size(744, 503);
+            this.issueReturnBookPanel.TabIndex = 0;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +242,7 @@ namespace LibraryManagementSystem
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.manageBookPanel);
             this.Controls.Add(this.manageStudentPanel);
+            this.Controls.Add(this.issueReturnBookPanel);
             this.Controls.Add(this.navPanel);
             this.Controls.Add(this.headerPanel);
             this.Name = "Dashboard";
@@ -267,5 +278,6 @@ namespace LibraryManagementSystem
 
         private ManageBookPanel manageBookPanel;
         private ManageStudentPanel manageStudentPanel;
+        private IssueReturnBookPanel issueReturnBookPanel;
     }
 }
