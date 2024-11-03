@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.studentDetailsPanel = new System.Windows.Forms.Panel();
+            this.returnButton = new System.Windows.Forms.Button();
             this.addressPlaceholder = new System.Windows.Forms.Label();
             this.emailPlaceholder = new System.Windows.Forms.Label();
             this.contactNoPlaceholder = new System.Windows.Forms.Label();
@@ -46,40 +47,53 @@
             this.yearLevelLabel = new System.Windows.Forms.Label();
             this.studentIdLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.returnButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.sectionPlaceholder = new System.Windows.Forms.Label();
+            this.sectionLabel = new System.Windows.Forms.Label();
+            this.studentDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // studentDetailsPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.returnButton);
-            this.panel1.Controls.Add(this.addressPlaceholder);
-            this.panel1.Controls.Add(this.emailPlaceholder);
-            this.panel1.Controls.Add(this.contactNoPlaceholder);
-            this.panel1.Controls.Add(this.lastNamePlaceholder);
-            this.panel1.Controls.Add(this.middleNamePlaceholder);
-            this.panel1.Controls.Add(this.firstNamePlaceholder);
-            this.panel1.Controls.Add(this.yearLevelPlaceholder);
-            this.panel1.Controls.Add(this.studentIdPlaceholder);
-            this.panel1.Controls.Add(this.addressLabel);
-            this.panel1.Controls.Add(this.emailLabel);
-            this.panel1.Controls.Add(this.contactNoLabel);
-            this.panel1.Controls.Add(this.lastNameLabel);
-            this.panel1.Controls.Add(this.middleNameLabel);
-            this.panel1.Controls.Add(this.firstNameLabel);
-            this.panel1.Controls.Add(this.yearLevelLabel);
-            this.panel1.Controls.Add(this.studentIdLabel);
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 289);
-            this.panel1.TabIndex = 0;
+            this.studentDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.studentDetailsPanel.Controls.Add(this.sectionPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.sectionLabel);
+            this.studentDetailsPanel.Controls.Add(this.returnButton);
+            this.studentDetailsPanel.Controls.Add(this.addressPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.emailPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.contactNoPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.lastNamePlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.middleNamePlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.firstNamePlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.yearLevelPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.studentIdPlaceholder);
+            this.studentDetailsPanel.Controls.Add(this.addressLabel);
+            this.studentDetailsPanel.Controls.Add(this.emailLabel);
+            this.studentDetailsPanel.Controls.Add(this.contactNoLabel);
+            this.studentDetailsPanel.Controls.Add(this.lastNameLabel);
+            this.studentDetailsPanel.Controls.Add(this.middleNameLabel);
+            this.studentDetailsPanel.Controls.Add(this.firstNameLabel);
+            this.studentDetailsPanel.Controls.Add(this.yearLevelLabel);
+            this.studentDetailsPanel.Controls.Add(this.studentIdLabel);
+            this.studentDetailsPanel.Controls.Add(this.titleLabel);
+            this.studentDetailsPanel.Location = new System.Drawing.Point(12, 12);
+            this.studentDetailsPanel.Name = "studentDetailsPanel";
+            this.studentDetailsPanel.Size = new System.Drawing.Size(300, 289);
+            this.studentDetailsPanel.TabIndex = 0;
+            // 
+            // returnButton
+            // 
+            this.returnButton.Location = new System.Drawing.Point(101, 251);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(75, 23);
+            this.returnButton.TabIndex = 17;
+            this.returnButton.Text = "Return";
+            this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // addressPlaceholder
             // 
             this.addressPlaceholder.AutoSize = true;
-            this.addressPlaceholder.Location = new System.Drawing.Point(115, 212);
+            this.addressPlaceholder.Location = new System.Drawing.Point(115, 232);
             this.addressPlaceholder.Name = "addressPlaceholder";
             this.addressPlaceholder.Size = new System.Drawing.Size(112, 13);
             this.addressPlaceholder.TabIndex = 16;
@@ -88,7 +102,7 @@
             // emailPlaceholder
             // 
             this.emailPlaceholder.AutoSize = true;
-            this.emailPlaceholder.Location = new System.Drawing.Point(115, 190);
+            this.emailPlaceholder.Location = new System.Drawing.Point(115, 210);
             this.emailPlaceholder.Name = "emailPlaceholder";
             this.emailPlaceholder.Size = new System.Drawing.Size(135, 13);
             this.emailPlaceholder.TabIndex = 15;
@@ -97,7 +111,7 @@
             // contactNoPlaceholder
             // 
             this.contactNoPlaceholder.AutoSize = true;
-            this.contactNoPlaceholder.Location = new System.Drawing.Point(115, 167);
+            this.contactNoPlaceholder.Location = new System.Drawing.Point(115, 187);
             this.contactNoPlaceholder.Name = "contactNoPlaceholder";
             this.contactNoPlaceholder.Size = new System.Drawing.Size(61, 13);
             this.contactNoPlaceholder.TabIndex = 14;
@@ -106,7 +120,7 @@
             // lastNamePlaceholder
             // 
             this.lastNamePlaceholder.AutoSize = true;
-            this.lastNamePlaceholder.Location = new System.Drawing.Point(115, 145);
+            this.lastNamePlaceholder.Location = new System.Drawing.Point(115, 165);
             this.lastNamePlaceholder.Name = "lastNamePlaceholder";
             this.lastNamePlaceholder.Size = new System.Drawing.Size(38, 13);
             this.lastNamePlaceholder.TabIndex = 13;
@@ -115,7 +129,7 @@
             // middleNamePlaceholder
             // 
             this.middleNamePlaceholder.AutoSize = true;
-            this.middleNamePlaceholder.Location = new System.Drawing.Point(115, 123);
+            this.middleNamePlaceholder.Location = new System.Drawing.Point(115, 143);
             this.middleNamePlaceholder.Name = "middleNamePlaceholder";
             this.middleNamePlaceholder.Size = new System.Drawing.Size(50, 13);
             this.middleNamePlaceholder.TabIndex = 12;
@@ -124,7 +138,7 @@
             // firstNamePlaceholder
             // 
             this.firstNamePlaceholder.AutoSize = true;
-            this.firstNamePlaceholder.Location = new System.Drawing.Point(115, 101);
+            this.firstNamePlaceholder.Location = new System.Drawing.Point(115, 121);
             this.firstNamePlaceholder.Name = "firstNamePlaceholder";
             this.firstNamePlaceholder.Size = new System.Drawing.Size(34, 13);
             this.firstNamePlaceholder.TabIndex = 11;
@@ -151,7 +165,7 @@
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(64, 212);
+            this.addressLabel.Location = new System.Drawing.Point(64, 232);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(45, 13);
             this.addressLabel.TabIndex = 8;
@@ -160,7 +174,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(77, 190);
+            this.emailLabel.Location = new System.Drawing.Point(77, 210);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(32, 13);
             this.emailLabel.TabIndex = 7;
@@ -169,7 +183,7 @@
             // contactNoLabel
             // 
             this.contactNoLabel.AutoSize = true;
-            this.contactNoLabel.Location = new System.Drawing.Point(45, 167);
+            this.contactNoLabel.Location = new System.Drawing.Point(45, 187);
             this.contactNoLabel.Name = "contactNoLabel";
             this.contactNoLabel.Size = new System.Drawing.Size(64, 13);
             this.contactNoLabel.TabIndex = 6;
@@ -178,7 +192,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(51, 145);
+            this.lastNameLabel.Location = new System.Drawing.Point(51, 165);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
             this.lastNameLabel.TabIndex = 5;
@@ -187,7 +201,7 @@
             // middleNameLabel
             // 
             this.middleNameLabel.AutoSize = true;
-            this.middleNameLabel.Location = new System.Drawing.Point(40, 123);
+            this.middleNameLabel.Location = new System.Drawing.Point(40, 143);
             this.middleNameLabel.Name = "middleNameLabel";
             this.middleNameLabel.Size = new System.Drawing.Size(69, 13);
             this.middleNameLabel.TabIndex = 4;
@@ -196,7 +210,7 @@
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(52, 101);
+            this.firstNameLabel.Location = new System.Drawing.Point(52, 121);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(57, 13);
             this.firstNameLabel.TabIndex = 3;
@@ -230,15 +244,23 @@
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Student Details";
             // 
-            // returnButton
+            // sectionPlaceholder
             // 
-            this.returnButton.Location = new System.Drawing.Point(102, 243);
-            this.returnButton.Name = "returnButton";
-            this.returnButton.Size = new System.Drawing.Size(75, 23);
-            this.returnButton.TabIndex = 17;
-            this.returnButton.Text = "Return";
-            this.returnButton.UseVisualStyleBackColor = true;
-            this.returnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.sectionPlaceholder.AutoSize = true;
+            this.sectionPlaceholder.Location = new System.Drawing.Point(116, 99);
+            this.sectionPlaceholder.Name = "sectionPlaceholder";
+            this.sectionPlaceholder.Size = new System.Drawing.Size(14, 13);
+            this.sectionPlaceholder.TabIndex = 19;
+            this.sectionPlaceholder.Text = "A";
+            // 
+            // sectionLabel
+            // 
+            this.sectionLabel.AutoSize = true;
+            this.sectionLabel.Location = new System.Drawing.Point(66, 99);
+            this.sectionLabel.Name = "sectionLabel";
+            this.sectionLabel.Size = new System.Drawing.Size(43, 13);
+            this.sectionLabel.TabIndex = 18;
+            this.sectionLabel.Text = "Section";
             // 
             // StudentDetails
             // 
@@ -246,19 +268,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(324, 313);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.studentDetailsPanel);
             this.Name = "StudentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewStudent";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.studentDetailsPanel.ResumeLayout(false);
+            this.studentDetailsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel studentDetailsPanel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label studentIdLabel;
         private System.Windows.Forms.Label yearLevelLabel;
@@ -277,5 +299,7 @@
         private System.Windows.Forms.Label firstNamePlaceholder;
         private System.Windows.Forms.Label yearLevelPlaceholder;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Label sectionLabel;
+        private System.Windows.Forms.Label sectionPlaceholder;
     }
 }

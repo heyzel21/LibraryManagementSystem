@@ -41,5 +41,7 @@ namespace LibraryManagementSystem
             this.email = email;
             this.address = address;
         }
+
+        public Student() { }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagementSystem
 {
@@ -45,6 +47,8 @@ namespace LibraryManagementSystem
                             // Add the student object to the List
                             studentList.Add(student);
                         }
+
+                        conn.Close();
                     }
                 }
                 catch (Exception ex)
@@ -56,6 +60,50 @@ namespace LibraryManagementSystem
             }
 
             return studentList;
+        }
+
+        public Student GetByStudentId(int _studentId)
+        {
+            Student student = new Student();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM students WHERE student_id = @StudentId";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@StudentId", _studentId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            student.id = reader.GetInt32("id");
+                            student.studentId = reader.GetInt32("student_id");
+                            student.yearLevel = reader.GetInt32("year_level");
+                            student.section = reader.GetString("section");
+                            student.firstName = reader.GetString("first_name");
+                            student.middleName = reader.GetString("middle_name");
+                            student.lastName = reader.GetString("last_name");
+                            student.contactNo = reader.GetString("contact_no");
+                            student.email = reader.GetString("email");
+                            student.address = reader.GetString("address");
+                        }
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+
+                return student;
+            }
         }
 
         public void Add(Student newStudent)
@@ -81,6 +129,7 @@ namespace LibraryManagementSystem
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
                 catch (Exception ex)
                 {
@@ -141,6 +190,7 @@ namespace LibraryManagementSystem
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
                 catch (Exception ex)
                 {

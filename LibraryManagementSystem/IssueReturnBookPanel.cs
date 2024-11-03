@@ -6,13 +6,13 @@ namespace LibraryManagementSystem
 {
     public partial class IssueReturnBookPanel : UserControl
     {
-        private readonly IssueReturnBookService issueReturnBookService;
+        private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
         private readonly PromptService promptService;
+        private readonly IssueReturnBookService issueReturnBookService;
+        private readonly StudentService studentService;
 
         private StudentDetails studentDetails;
         private BookDetails bookDetails;
-
-        private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
 
         private int selectedId = 0;
         private readonly int noOfDaysToReturnRule = 3;
@@ -21,8 +21,9 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
 
-            this.issueReturnBookService = new IssueReturnBookService(connectionString);
             this.promptService = new PromptService();
+            this.issueReturnBookService = new IssueReturnBookService(connectionString);
+            this.studentService = new StudentService(connectionString);
         }
 
         private void ManageBookPanel_Load(object sender, EventArgs e)
@@ -66,99 +67,71 @@ namespace LibraryManagementSystem
             }
         }
 
-        private void UpdateButton_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    int id = selectedId;
-            //    string title = titleTextBox.Text;
-            //    string author = authorTextBox.Text;
-            //    DateTime datePublished = dateTimePickerPublished.Value.Date;
-            //    int quantity = Int32.Parse(quantityTextBox.Text);
-
-            //    Book newBook = new Book(id, title, author, datePublished, quantity);
-
-            //    bool isConfirmed = this.promptService.ShowConfirmation("Do you want to update this book details?");
-            //    if (isConfirmed)
-            //    {
-            //        this.bookService.Update(newBook);
-            //        this.RefreshBookDataGridView();
-            //        MessageBox.Show("Book updated succesfully");
-            //    }
-            //    else
-            //    {
-            //        this.ResetForm();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            //bool isConfirmed = this.promptService.ShowConfirmation("Do you want to delete this book details?");
+            bool isConfirmed = this.promptService.ShowConfirmation("Do you want to delete this record?");
 
-            //if (isConfirmed)
-            //{
-            //    this.bookService.Delete(this.selectedId);
-            //    this.RefreshBookDataGridView();
-            //    MessageBox.Show("Book deleted succesfully");
-            //} else
-            //{
-            //    this.ResetForm();
-            //}
-            
+            if (isConfirmed)
+            {
+                this.issueReturnBookService.Delete(this.selectedId);
+                this.RefreshBookDataGridView();
+                MessageBox.Show("Record deleted succesfully");
+            }
+            else
+            {
+                this.ResetForm();
+            }
+
         }
 
         private void RefreshBookDataGridView()
         {
-            //booksDataGridView.DataSource = this.bookService.List();
-            //this.ResetForm();
+            issueReturnBooksDataGridView.DataSource = this.issueReturnBookService.List();
+            this.ResetForm();
         }
 
         private void BooksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex < 0) { return; }
+            if (e.RowIndex < 0) { return; }
 
-            //DataGridViewRow row = this.booksDataGridView.Rows[e.RowIndex];
-            //int id = Int32.Parse(row.Cells["id"].Value.ToString());
-            //string title = row.Cells["title"].Value.ToString();
-            //string author = row.Cells["author"].Value.ToString();
-            //string publishedDate = row.Cells["publishedDate"].Value.ToString();
-            //string quantity = row.Cells["quantity"].Value.ToString();
+            DataGridViewRow row = this.issueReturnBooksDataGridView.Rows[e.RowIndex];
+            int id = Int32.Parse(row.Cells["id"].Value.ToString());
+            int student_id = Int32.Parse(row.Cells["student_id"].Value.ToString());
+            int book_id = Int32.Parse(row.Cells["book_id"].Value.ToString());
 
-            //this.selectedId = id;
-            //this.titleTextBox.Text = title;
-            //this.authorTextBox.Text = author;
-            //this.quantityTextBox.Text = quantity;
-            //this.dateTimePickerPublished.Value = DateTime.Parse(publishedDate?.ToString());
+            this.selectedId = id;
+            this.studentIdNumericUpDown.Value = student_id;
+            this.bookIdNumericUpDown.Value = book_id;
 
-            //this.deleteButton.Enabled = true;
-            //this.updateButton.Enabled = true;
+            this.deleteButton.Enabled = true;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            //this.ResetForm();
+            this.ResetForm();
         }
         
         private void ResetForm()
         {
-            //this.selectedId = 0;
-            //this.titleTextBox.Text = "";
-            //this.authorTextBox.Text = "";
-            //this.quantityTextBox.Text = "";
-            //this.dateTimePickerPublished.ResetText();
+            this.selectedId = 0;
+            this.studentIdNumericUpDown.Value = 0;
+            this.bookIdNumericUpDown.Value = 0;
 
-            //this.deleteButton.Enabled = false;
-            //this.updateButton.Enabled = false;
+            this.deleteButton.Enabled = false;
         }
 
         private void ViewStudentButton_Click(object sender, EventArgs e)
         {
-            studentDetails = new StudentDetails();
+            int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
+            Student student = this.studentService.GetByStudentId(studentId);
+
+            if (student.id == 0)
+            {;
+                MessageBox.Show("Sorry, this student ID number does not exist.");
+                return;
+            }
+
+            studentDetails = new StudentDetails(student);
             studentDetails.Show();
         }
 

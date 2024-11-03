@@ -34,21 +34,20 @@ namespace LibraryManagementSystem
             this.issueReturnBookListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.issueReturnBookControlPanel = new System.Windows.Forms.Panel();
+            this.bookIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.studentIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.viewBookButon = new System.Windows.Forms.Button();
             this.viewStudentButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
             this.bookLabel = new System.Windows.Forms.Label();
             this.studentIdLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.studentIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.bookIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.issueReturnBooksDataGridView)).BeginInit();
             this.issueReturnBookListPanel.SuspendLayout();
             this.issueReturnBookControlPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookIdNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // issueReturnBooksDataGridView
@@ -90,7 +89,6 @@ namespace LibraryManagementSystem
             this.issueReturnBookControlPanel.Controls.Add(this.viewStudentButton);
             this.issueReturnBookControlPanel.Controls.Add(this.clearButton);
             this.issueReturnBookControlPanel.Controls.Add(this.deleteButton);
-            this.issueReturnBookControlPanel.Controls.Add(this.updateButton);
             this.issueReturnBookControlPanel.Controls.Add(this.bookLabel);
             this.issueReturnBookControlPanel.Controls.Add(this.studentIdLabel);
             this.issueReturnBookControlPanel.Controls.Add(this.addButton);
@@ -98,6 +96,25 @@ namespace LibraryManagementSystem
             this.issueReturnBookControlPanel.Name = "issueReturnBookControlPanel";
             this.issueReturnBookControlPanel.Size = new System.Drawing.Size(211, 484);
             this.issueReturnBookControlPanel.TabIndex = 2;
+            // 
+            // bookIdNumericUpDown
+            // 
+            this.bookIdNumericUpDown.Location = new System.Drawing.Point(67, 161);
+            this.bookIdNumericUpDown.Name = "bookIdNumericUpDown";
+            this.bookIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
+            this.bookIdNumericUpDown.TabIndex = 19;
+            // 
+            // studentIdNumericUpDown
+            // 
+            this.studentIdNumericUpDown.Location = new System.Drawing.Point(67, 105);
+            this.studentIdNumericUpDown.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.studentIdNumericUpDown.Name = "studentIdNumericUpDown";
+            this.studentIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
+            this.studentIdNumericUpDown.TabIndex = 18;
             // 
             // viewBookButon
             // 
@@ -140,17 +157,6 @@ namespace LibraryManagementSystem
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // updateButton
-            // 
-            this.updateButton.Enabled = false;
-            this.updateButton.Location = new System.Drawing.Point(104, 317);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(86, 23);
-            this.updateButton.TabIndex = 10;
-            this.updateButton.Text = "UPDATE";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
             // bookLabel
             // 
             this.bookLabel.AutoSize = true;
@@ -179,20 +185,6 @@ namespace LibraryManagementSystem
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddBtn_Click);
             // 
-            // studentIdNumericUpDown
-            // 
-            this.studentIdNumericUpDown.Location = new System.Drawing.Point(67, 105);
-            this.studentIdNumericUpDown.Name = "studentIdNumericUpDown";
-            this.studentIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
-            this.studentIdNumericUpDown.TabIndex = 18;
-            // 
-            // bookIdNumericUpDown
-            // 
-            this.bookIdNumericUpDown.Location = new System.Drawing.Point(67, 161);
-            this.bookIdNumericUpDown.Name = "bookIdNumericUpDown";
-            this.bookIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
-            this.bookIdNumericUpDown.TabIndex = 19;
-            // 
             // IssueReturnBookPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,8 +201,8 @@ namespace LibraryManagementSystem
             this.issueReturnBookListPanel.PerformLayout();
             this.issueReturnBookControlPanel.ResumeLayout(false);
             this.issueReturnBookControlPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookIdNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,7 +216,6 @@ namespace LibraryManagementSystem
         private Button addButton;
         private Label bookLabel;
         private Label studentIdLabel;
-        private Button updateButton;
         private Button deleteButton;
         private Button clearButton;
         private Button viewStudentButton;
