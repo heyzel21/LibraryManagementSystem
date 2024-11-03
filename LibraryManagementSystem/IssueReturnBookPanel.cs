@@ -6,8 +6,8 @@ namespace LibraryManagementSystem
 {
     public partial class IssueReturnBookPanel : UserControl
     {
-        //private readonly BookService bookService;
-        //private readonly PromptService promptService;
+        private readonly IssueReturnBookService issueReturnBookService;
+        private readonly PromptService promptService;
 
         private StudentDetails studentDetails;
         private BookDetails bookDetails;
@@ -15,13 +15,14 @@ namespace LibraryManagementSystem
         private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
 
         private int selectedId = 0;
+        private readonly int noOfDaysToReturnRule = 3;
 
         public IssueReturnBookPanel()
         {
             InitializeComponent();
 
-            //this.bookService = new BookService(connectionString);
-            //this.promptService = new PromptService();
+            this.issueReturnBookService = new IssueReturnBookService(connectionString);
+            this.promptService = new PromptService();
         }
 
         private void ManageBookPanel_Load(object sender, EventArgs e)
@@ -31,32 +32,38 @@ namespace LibraryManagementSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string title = titleTextBox.Text;
-            //    string author = authorTextBox.Text;
-            //    DateTime datePublished = dateTimePickerPublished.Value.Date;
-            //    int quantity = Int32.Parse(quantityTextBox.Text);
+            try
+            {
+                int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
+                int bookId = Convert.ToInt32(Math.Round(this.bookIdNumericUpDown.Value, 0));
+                DateTime dateBorrow = DateTime.Now;
 
-            //    Book newBook = new Book(title, author, datePublished, quantity);
+                if (studentId == 0 || bookId == 0)
+                {
+                    return;
+                }
 
-            //    bool isConfirmed = this.promptService.ShowConfirmation("Do you want to add this book details?");
-            //    if (isConfirmed)
-            //    {
-            //        this.bookService.Add(newBook);
-            //        this.RefreshBookDataGridView();
-            //        MessageBox.Show("Book added succesfully");
-            //    }
-            //    else
-            //    {
-            //        this.ResetForm();
-            //    }
+                IssueReturnBook newIssueReturnBook = new IssueReturnBook(studentId, bookId, dateBorrow);
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                bool isConfirmed = this.promptService.ShowConfirmation("Do you want to record this details?");
+                if (isConfirmed)
+                {
+                    this.issueReturnBookService.Add(newIssueReturnBook);
+                    this.RefreshBookDataGridView();
+
+                    MessageBox.Show("Note: The book is issued today at " + DateTime.Now.Date + ". Book should be returned within " + this.noOfDaysToReturnRule + " days.");
+                    MessageBox.Show("Record added succesfully");
+                }
+                else
+                {
+                    this.ResetForm();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)

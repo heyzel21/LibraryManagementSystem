@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="IssueReturnBookService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -106,6 +107,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="IssueReturnBook.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

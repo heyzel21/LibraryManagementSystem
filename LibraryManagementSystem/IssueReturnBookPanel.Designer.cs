@@ -34,23 +34,21 @@ namespace LibraryManagementSystem
             this.issueReturnBookListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.issueReturnBookControlPanel = new System.Windows.Forms.Panel();
-            this.dateReturnDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dateReturnLabel = new System.Windows.Forms.Label();
             this.viewBookButon = new System.Windows.Forms.Button();
             this.viewStudentButton = new System.Windows.Forms.Button();
-            this.dateBorrowDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.clearButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
-            this.dateBorrowLabel = new System.Windows.Forms.Label();
             this.bookLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.authorTextBox = new System.Windows.Forms.TextBox();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.studentIdLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
+            this.studentIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.bookIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.issueReturnBooksDataGridView)).BeginInit();
             this.issueReturnBookListPanel.SuspendLayout();
             this.issueReturnBookControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookIdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // issueReturnBooksDataGridView
@@ -86,42 +84,20 @@ namespace LibraryManagementSystem
             // issueReturnBookControlPanel
             // 
             this.issueReturnBookControlPanel.BackColor = System.Drawing.Color.White;
-            this.issueReturnBookControlPanel.Controls.Add(this.dateReturnDateTimePicker);
-            this.issueReturnBookControlPanel.Controls.Add(this.dateReturnLabel);
+            this.issueReturnBookControlPanel.Controls.Add(this.bookIdNumericUpDown);
+            this.issueReturnBookControlPanel.Controls.Add(this.studentIdNumericUpDown);
             this.issueReturnBookControlPanel.Controls.Add(this.viewBookButon);
             this.issueReturnBookControlPanel.Controls.Add(this.viewStudentButton);
-            this.issueReturnBookControlPanel.Controls.Add(this.dateBorrowDateTimePicker);
             this.issueReturnBookControlPanel.Controls.Add(this.clearButton);
             this.issueReturnBookControlPanel.Controls.Add(this.deleteButton);
             this.issueReturnBookControlPanel.Controls.Add(this.updateButton);
-            this.issueReturnBookControlPanel.Controls.Add(this.dateBorrowLabel);
             this.issueReturnBookControlPanel.Controls.Add(this.bookLabel);
-            this.issueReturnBookControlPanel.Controls.Add(this.titleLabel);
-            this.issueReturnBookControlPanel.Controls.Add(this.authorTextBox);
-            this.issueReturnBookControlPanel.Controls.Add(this.titleTextBox);
+            this.issueReturnBookControlPanel.Controls.Add(this.studentIdLabel);
             this.issueReturnBookControlPanel.Controls.Add(this.addButton);
             this.issueReturnBookControlPanel.Location = new System.Drawing.Point(12, 10);
             this.issueReturnBookControlPanel.Name = "issueReturnBookControlPanel";
             this.issueReturnBookControlPanel.Size = new System.Drawing.Size(211, 484);
             this.issueReturnBookControlPanel.TabIndex = 2;
-            // 
-            // dateReturnDateTimePicker
-            // 
-            this.dateReturnDateTimePicker.CustomFormat = "MMMM dd yyyy";
-            this.dateReturnDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateReturnDateTimePicker.Location = new System.Drawing.Point(67, 246);
-            this.dateReturnDateTimePicker.Name = "dateReturnDateTimePicker";
-            this.dateReturnDateTimePicker.Size = new System.Drawing.Size(137, 20);
-            this.dateReturnDateTimePicker.TabIndex = 17;
-            // 
-            // dateReturnLabel
-            // 
-            this.dateReturnLabel.AutoSize = true;
-            this.dateReturnLabel.Location = new System.Drawing.Point(3, 250);
-            this.dateReturnLabel.Name = "dateReturnLabel";
-            this.dateReturnLabel.Size = new System.Drawing.Size(65, 13);
-            this.dateReturnLabel.TabIndex = 16;
-            this.dateReturnLabel.Text = "Date Return";
             // 
             // viewBookButon
             // 
@@ -142,15 +118,6 @@ namespace LibraryManagementSystem
             this.viewStudentButton.Text = "View Student";
             this.viewStudentButton.UseVisualStyleBackColor = true;
             this.viewStudentButton.Click += new System.EventHandler(this.ViewStudentButton_Click);
-            // 
-            // dateBorrowDateTimePicker
-            // 
-            this.dateBorrowDateTimePicker.CustomFormat = "MMMM dd yyyy";
-            this.dateBorrowDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateBorrowDateTimePicker.Location = new System.Drawing.Point(67, 218);
-            this.dateBorrowDateTimePicker.Name = "dateBorrowDateTimePicker";
-            this.dateBorrowDateTimePicker.Size = new System.Drawing.Size(137, 20);
-            this.dateBorrowDateTimePicker.TabIndex = 13;
             // 
             // clearButton
             // 
@@ -184,15 +151,6 @@ namespace LibraryManagementSystem
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // dateBorrowLabel
-            // 
-            this.dateBorrowLabel.AutoSize = true;
-            this.dateBorrowLabel.Location = new System.Drawing.Point(3, 222);
-            this.dateBorrowLabel.Name = "dateBorrowLabel";
-            this.dateBorrowLabel.Size = new System.Drawing.Size(66, 13);
-            this.dateBorrowLabel.TabIndex = 8;
-            this.dateBorrowLabel.Text = "Date Borrow";
-            // 
             // bookLabel
             // 
             this.bookLabel.AutoSize = true;
@@ -202,28 +160,14 @@ namespace LibraryManagementSystem
             this.bookLabel.TabIndex = 7;
             this.bookLabel.Text = "Book ID";
             // 
-            // titleLabel
+            // studentIdLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(7, 109);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(58, 13);
-            this.titleLabel.TabIndex = 6;
-            this.titleLabel.Text = "Student ID";
-            // 
-            // authorTextBox
-            // 
-            this.authorTextBox.Location = new System.Drawing.Point(67, 161);
-            this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(137, 20);
-            this.authorTextBox.TabIndex = 3;
-            // 
-            // titleTextBox
-            // 
-            this.titleTextBox.Location = new System.Drawing.Point(67, 106);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(137, 20);
-            this.titleTextBox.TabIndex = 2;
+            this.studentIdLabel.AutoSize = true;
+            this.studentIdLabel.Location = new System.Drawing.Point(7, 109);
+            this.studentIdLabel.Name = "studentIdLabel";
+            this.studentIdLabel.Size = new System.Drawing.Size(58, 13);
+            this.studentIdLabel.TabIndex = 6;
+            this.studentIdLabel.Text = "Student ID";
             // 
             // addButton
             // 
@@ -234,6 +178,20 @@ namespace LibraryManagementSystem
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // studentIdNumericUpDown
+            // 
+            this.studentIdNumericUpDown.Location = new System.Drawing.Point(67, 105);
+            this.studentIdNumericUpDown.Name = "studentIdNumericUpDown";
+            this.studentIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
+            this.studentIdNumericUpDown.TabIndex = 18;
+            // 
+            // bookIdNumericUpDown
+            // 
+            this.bookIdNumericUpDown.Location = new System.Drawing.Point(67, 161);
+            this.bookIdNumericUpDown.Name = "bookIdNumericUpDown";
+            this.bookIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
+            this.bookIdNumericUpDown.TabIndex = 19;
             // 
             // IssueReturnBookPanel
             // 
@@ -251,6 +209,8 @@ namespace LibraryManagementSystem
             this.issueReturnBookListPanel.PerformLayout();
             this.issueReturnBookControlPanel.ResumeLayout(false);
             this.issueReturnBookControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,18 +222,14 @@ namespace LibraryManagementSystem
         private Label dgvTitle;
         private Panel issueReturnBookControlPanel;
         private Button addButton;
-        private TextBox titleTextBox;
-        private TextBox authorTextBox;
-        private Label dateBorrowLabel;
         private Label bookLabel;
-        private Label titleLabel;
+        private Label studentIdLabel;
         private Button updateButton;
         private Button deleteButton;
         private Button clearButton;
-        private DateTimePicker dateBorrowDateTimePicker;
         private Button viewStudentButton;
         private Button viewBookButon;
-        private DateTimePicker dateReturnDateTimePicker;
-        private Label dateReturnLabel;
+        private NumericUpDown bookIdNumericUpDown;
+        private NumericUpDown studentIdNumericUpDown;
     }
 }
