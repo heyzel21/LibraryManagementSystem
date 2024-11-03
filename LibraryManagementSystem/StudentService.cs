@@ -106,6 +106,50 @@ namespace LibraryManagementSystem
             }
         }
 
+        public Student GetById(int _id)
+        {
+            Student student = new Student();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM students WHERE id = @Id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@Id", _id);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            student.id = reader.GetInt32("id");
+                            student.studentId = reader.GetInt32("student_id");
+                            student.yearLevel = reader.GetInt32("year_level");
+                            student.section = reader.GetString("section");
+                            student.firstName = reader.GetString("first_name");
+                            student.middleName = reader.GetString("middle_name");
+                            student.lastName = reader.GetString("last_name");
+                            student.contactNo = reader.GetString("contact_no");
+                            student.email = reader.GetString("email");
+                            student.address = reader.GetString("address");
+                        }
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+
+                return student;
+            }
+        }
+
         public void Add(Student newStudent)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))

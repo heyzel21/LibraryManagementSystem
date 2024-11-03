@@ -96,8 +96,8 @@ namespace LibraryManagementSystem
 
             DataGridViewRow row = this.issueReturnBooksDataGridView.Rows[e.RowIndex];
             int id = Int32.Parse(row.Cells["id"].Value.ToString());
-            int student_id = Int32.Parse(row.Cells["student_id"].Value.ToString());
-            int book_id = Int32.Parse(row.Cells["book_id"].Value.ToString());
+            int student_id = Int32.Parse(row.Cells["studentId"].Value.ToString());
+            int book_id = Int32.Parse(row.Cells["bookId"].Value.ToString());
 
             this.selectedId = id;
             this.studentIdNumericUpDown.Value = student_id;

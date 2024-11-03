@@ -19,6 +19,14 @@ namespace LibraryManagementSystem
             this.dateReturn = dateReturn;
         }
 
+        public IssueReturnBook(int id, int studentId, int bookId, DateTime dateBorrow)
+        {
+            this.id = id;
+            this.studentId = studentId;
+            this.bookId = bookId;
+            this.dateBorrow = dateBorrow;
+        }
+
         public IssueReturnBook(int studentId, int bookId, DateTime dateBorrow)
         {
             this.studentId = studentId;
