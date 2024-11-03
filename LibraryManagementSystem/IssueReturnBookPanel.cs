@@ -10,6 +10,7 @@ namespace LibraryManagementSystem
         //private readonly PromptService promptService;
 
         private StudentDetails studentDetails;
+        private BookDetails bookDetails;
 
         private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
 
@@ -152,6 +153,12 @@ namespace LibraryManagementSystem
         {
             studentDetails = new StudentDetails();
             studentDetails.Show();
+        }
+
+        private void ViewBookButon_Click(object sender, EventArgs e)
+        {
+            bookDetails = new BookDetails();
+            bookDetails.Show();
         }
     }
 }

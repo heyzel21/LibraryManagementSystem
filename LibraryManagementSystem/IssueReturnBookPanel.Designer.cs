@@ -131,6 +131,7 @@ namespace LibraryManagementSystem
             this.viewBookButon.TabIndex = 15;
             this.viewBookButon.Text = "View Book";
             this.viewBookButon.UseVisualStyleBackColor = true;
+            this.viewBookButon.Click += new System.EventHandler(this.ViewBookButon_Click);
             // 
             // viewStudentButton
             // 
