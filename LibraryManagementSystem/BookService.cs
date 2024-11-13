@@ -135,5 +135,44 @@ namespace LibraryManagementSystem
                 }
             }
         }
+
+        public Book GetById(int _id)
+        {
+            Book book = new Book();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM books WHERE id = @Id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@Id", _id);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            book.id = reader.GetInt32("id");
+                            book.title = reader.GetString("title");
+                            book.author = reader.GetString("author");
+                            book.quantity = reader.GetInt32("quantity");
+                            book.publishedDate = reader.GetDateTime("published_date").Date;
+                        }
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+
+                return book;
+            }
+        }
     }
 }

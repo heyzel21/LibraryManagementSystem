@@ -10,6 +10,7 @@ namespace LibraryManagementSystem
         private readonly PromptService promptService;
         private readonly IssueReturnBookService issueReturnBookService;
         private readonly StudentService studentService;
+        private readonly BookService bookService;
 
         private StudentDetails studentDetails;
         private BookDetails bookDetails;
@@ -22,8 +23,10 @@ namespace LibraryManagementSystem
             InitializeComponent();
 
             this.promptService = new PromptService();
+
             this.issueReturnBookService = new IssueReturnBookService(connectionString);
             this.studentService = new StudentService(connectionString);
+            this.bookService = new BookService(connectionString);
         }
 
         private void ManageBookPanel_Load(object sender, EventArgs e)
@@ -137,7 +140,16 @@ namespace LibraryManagementSystem
 
         private void ViewBookButon_Click(object sender, EventArgs e)
         {
-            bookDetails = new BookDetails();
+            int bookId = Convert.ToInt32(Math.Round(this.bookIdNumericUpDown.Value, 0));
+            Book book = this.bookService.GetById(bookId);
+
+            if (book.id == 0)
+            {
+                MessageBox.Show("Sorry, this book ID number does not exist.");
+                return;
+            }
+
+            bookDetails = new BookDetails(book);
             bookDetails.Show();
         }
     }
