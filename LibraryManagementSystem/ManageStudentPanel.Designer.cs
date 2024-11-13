@@ -34,6 +34,7 @@ namespace LibraryManagementSystem
             this.studentListPanel = new System.Windows.Forms.Panel();
             this.dgvTitle = new System.Windows.Forms.Label();
             this.studentControlPanel = new System.Windows.Forms.Panel();
+            this.yearLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.studentIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.addressLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
@@ -55,12 +56,11 @@ namespace LibraryManagementSystem
             this.updateButton = new System.Windows.Forms.Button();
             this.studentIdLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.yearLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             this.studentListPanel.SuspendLayout();
             this.studentControlPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearLevelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // studentsDataGridView
@@ -123,19 +123,30 @@ namespace LibraryManagementSystem
             this.studentControlPanel.Size = new System.Drawing.Size(724, 198);
             this.studentControlPanel.TabIndex = 2;
             // 
-            // studentIdNumericUpDown
+            // yearLevelNumericUpDown
             // 
-            this.studentIdNumericUpDown.Location = new System.Drawing.Point(94, 19);
-            this.studentIdNumericUpDown.Controls[0].Visible = false;
-            this.studentIdNumericUpDown.Maximum = new decimal(new int[] {
+            this.yearLevelNumericUpDown.Location = new System.Drawing.Point(94, 46);
+            this.yearLevelNumericUpDown.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.studentIdNumericUpDown.Minimum = new decimal(new int[] {
+            this.yearLevelNumericUpDown.Name = "yearLevelNumericUpDown";
+            this.yearLevelNumericUpDown.Size = new System.Drawing.Size(137, 20);
+            this.yearLevelNumericUpDown.TabIndex = 30;
+            this.yearLevelNumericUpDown.Value = new decimal(new int[] {
+            1,
             0,
             0,
-            0,
+            0});
+            // 
+            // studentIdNumericUpDown
+            // 
+            this.studentIdNumericUpDown.Location = new System.Drawing.Point(94, 19);
+            this.studentIdNumericUpDown.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
             0});
             this.studentIdNumericUpDown.Name = "studentIdNumericUpDown";
             this.studentIdNumericUpDown.Size = new System.Drawing.Size(137, 20);
@@ -318,29 +329,6 @@ namespace LibraryManagementSystem
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddBtn_Click);
             // 
-            // yearLevelNumericUpDown
-            // 
-            this.yearLevelNumericUpDown.Location = new System.Drawing.Point(94, 46);
-            this.yearLevelNumericUpDown.Controls[0].Visible = false;
-            this.yearLevelNumericUpDown.Maximum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.yearLevelNumericUpDown.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.yearLevelNumericUpDown.Name = "yearLevelNumericUpDown";
-            this.yearLevelNumericUpDown.Size = new System.Drawing.Size(137, 20);
-            this.yearLevelNumericUpDown.TabIndex = 30;
-            this.yearLevelNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // ManageStudentPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,8 +345,8 @@ namespace LibraryManagementSystem
             this.studentListPanel.PerformLayout();
             this.studentControlPanel.ResumeLayout(false);
             this.studentControlPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearLevelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }

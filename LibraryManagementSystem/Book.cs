@@ -26,5 +26,7 @@ namespace LibraryManagementSystem
             this.publishedDate = publishedDate;
             this.quantity = quantity;
         }
+
+        public Book() { }
     }
 }
