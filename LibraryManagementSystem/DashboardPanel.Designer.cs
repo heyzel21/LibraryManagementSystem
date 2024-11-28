@@ -196,7 +196,7 @@ namespace LibraryManagementSystem
             // 
             // numUsersPenaltyPanel
             // 
-            this.numUsersPenaltyPanel.BackColor = System.Drawing.Color.Firebrick;
+            this.numUsersPenaltyPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.numUsersPenaltyPanel.Controls.Add(this.numUsersPenaltyLbl);
             this.numUsersPenaltyPanel.Location = new System.Drawing.Point(547, 15);
             this.numUsersPenaltyPanel.Name = "numUsersPenaltyPanel";
@@ -207,7 +207,7 @@ namespace LibraryManagementSystem
             // 
             this.numUsersPenaltyLbl.AutoSize = true;
             this.numUsersPenaltyLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUsersPenaltyLbl.ForeColor = System.Drawing.Color.White;
+            this.numUsersPenaltyLbl.ForeColor = System.Drawing.Color.Black;
             this.numUsersPenaltyLbl.Location = new System.Drawing.Point(21, 22);
             this.numUsersPenaltyLbl.Name = "numUsersPenaltyLbl";
             this.numUsersPenaltyLbl.Size = new System.Drawing.Size(119, 16);
@@ -216,7 +216,7 @@ namespace LibraryManagementSystem
             // 
             // numBorrowBookPanel
             // 
-            this.numBorrowBookPanel.BackColor = System.Drawing.Color.Firebrick;
+            this.numBorrowBookPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.numBorrowBookPanel.Controls.Add(this.numBorrowedBooksLbl);
             this.numBorrowBookPanel.Location = new System.Drawing.Point(188, 15);
             this.numBorrowBookPanel.Name = "numBorrowBookPanel";
@@ -227,7 +227,7 @@ namespace LibraryManagementSystem
             // 
             this.numBorrowedBooksLbl.AutoSize = true;
             this.numBorrowedBooksLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numBorrowedBooksLbl.ForeColor = System.Drawing.Color.White;
+            this.numBorrowedBooksLbl.ForeColor = System.Drawing.Color.Black;
             this.numBorrowedBooksLbl.Location = new System.Drawing.Point(12, 22);
             this.numBorrowedBooksLbl.Name = "numBorrowedBooksLbl";
             this.numBorrowedBooksLbl.Size = new System.Drawing.Size(137, 16);
@@ -236,7 +236,7 @@ namespace LibraryManagementSystem
             // 
             // numReturnBookPanel
             // 
-            this.numReturnBookPanel.BackColor = System.Drawing.Color.Firebrick;
+            this.numReturnBookPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.numReturnBookPanel.Controls.Add(this.numReturneedBooksLbl);
             this.numReturnBookPanel.Location = new System.Drawing.Point(368, 15);
             this.numReturnBookPanel.Name = "numReturnBookPanel";
@@ -247,7 +247,7 @@ namespace LibraryManagementSystem
             // 
             this.numReturneedBooksLbl.AutoSize = true;
             this.numReturneedBooksLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numReturneedBooksLbl.ForeColor = System.Drawing.Color.White;
+            this.numReturneedBooksLbl.ForeColor = System.Drawing.Color.Black;
             this.numReturneedBooksLbl.Location = new System.Drawing.Point(23, 22);
             this.numReturneedBooksLbl.Name = "numReturneedBooksLbl";
             this.numReturneedBooksLbl.Size = new System.Drawing.Size(133, 16);
@@ -256,7 +256,7 @@ namespace LibraryManagementSystem
             // 
             // numUsersPanel
             // 
-            this.numUsersPanel.BackColor = System.Drawing.Color.Firebrick;
+            this.numUsersPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.numUsersPanel.Controls.Add(this.numUsersLbl);
             this.numUsersPanel.Location = new System.Drawing.Point(9, 15);
             this.numUsersPanel.Name = "numUsersPanel";
@@ -267,7 +267,7 @@ namespace LibraryManagementSystem
             // 
             this.numUsersLbl.AutoSize = true;
             this.numUsersLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUsersLbl.ForeColor = System.Drawing.Color.White;
+            this.numUsersLbl.ForeColor = System.Drawing.Color.Black;
             this.numUsersLbl.Location = new System.Drawing.Point(32, 22);
             this.numUsersLbl.Name = "numUsersLbl";
             this.numUsersLbl.Size = new System.Drawing.Size(101, 16);
