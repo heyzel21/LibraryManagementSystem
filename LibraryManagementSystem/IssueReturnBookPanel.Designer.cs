@@ -56,6 +56,7 @@ namespace LibraryManagementSystem
             this.issueReturnBooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.issueReturnBooksDataGridView.Location = new System.Drawing.Point(14, 39);
             this.issueReturnBooksDataGridView.Name = "issueReturnBooksDataGridView";
+            this.issueReturnBooksDataGridView.ReadOnly = true;
             this.issueReturnBooksDataGridView.Size = new System.Drawing.Size(487, 442);
             this.issueReturnBooksDataGridView.TabIndex = 0;
             this.issueReturnBooksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellClick);
