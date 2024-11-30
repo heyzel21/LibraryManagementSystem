@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace LibraryManagementSystem
 {
@@ -13,6 +14,8 @@ namespace LibraryManagementSystem
         {
             connectionString = connString;
             studentService = new StudentService(connString);
+
+            this.CreateIssuedBooksTable();
         }
 
         public List<IssueReturnBook> List()
@@ -101,6 +104,39 @@ namespace LibraryManagementSystem
                 catch (Exception ex)
                 {
                     // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        private void CreateIssuedBooksTable()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // SQL query to create the issued_books table with foreign key constraints
+                    string createTableQuery = @"
+                        CREATE TABLE IF NOT EXISTS issued_books (
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            student_id INT NOT NULL,
+                            book_id INT NOT NULL,
+                            date_borrow TIMESTAMP NOT NULL,
+                            CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                            CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+                        );
+                    ";
+
+                    // Execute the table creation query
+                    MySqlCommand cmd = new MySqlCommand(createTableQuery, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle and log the exception
                     Console.WriteLine("Database error: " + ex.Message);
                     throw;
                 }
