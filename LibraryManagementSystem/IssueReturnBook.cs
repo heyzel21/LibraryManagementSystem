@@ -27,11 +27,12 @@ namespace LibraryManagementSystem
             this.dateBorrow = dateBorrow;
         }
 
-        public IssueReturnBook(int studentId, int bookId, DateTime dateBorrow)
+        public IssueReturnBook(int studentId, int bookId, DateTime dateBorrow, DateTime dateReturn)
         {
             this.studentId = studentId;
             this.bookId = bookId;
             this.dateBorrow = dateBorrow;
+            this.dateReturn = dateReturn;
         }
     }
 }

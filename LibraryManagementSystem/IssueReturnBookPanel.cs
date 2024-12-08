@@ -41,13 +41,14 @@ namespace LibraryManagementSystem
                 int studentId = Convert.ToInt32(Math.Round(this.studentIdNumericUpDown.Value, 0));
                 int bookId = Convert.ToInt32(Math.Round(this.bookIdNumericUpDown.Value, 0));
                 DateTime dateBorrow = DateTime.Now;
+                DateTime dateReturn = dateBorrow.AddDays(this.noOfDaysToReturnRule);
 
                 if (studentId == 0 || bookId == 0)
                 {
                     return;
                 }
 
-                IssueReturnBook newIssueReturnBook = new IssueReturnBook(studentId, bookId, dateBorrow);
+                IssueReturnBook newIssueReturnBook = new IssueReturnBook(studentId, bookId, dateBorrow, dateReturn);
 
                 bool isConfirmed = this.promptService.ShowConfirmation("Do you want to record this details?");
                 if (isConfirmed)
@@ -55,7 +56,7 @@ namespace LibraryManagementSystem
                     this.issueReturnBookService.Add(newIssueReturnBook);
                     this.RefreshBookDataGridView();
 
-                    MessageBox.Show("Note: The book is issued today at " + DateTime.Now.Date + ". Book should be returned within " + this.noOfDaysToReturnRule + " days.");
+                    MessageBox.Show("Note: The book is issued today at " + dateBorrow.ToString("MMMM d, yyyy") + ". Book should be returned by " + dateReturn.ToString("MMMM d, yyyy") + ".");
                     MessageBox.Show("Record added succesfully");
                 }
                 else

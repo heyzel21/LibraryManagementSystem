@@ -39,8 +39,9 @@ namespace LibraryManagementSystem
                             Student student = this.studentService.GetById(studentId);
                             int bookId = reader.GetInt32("book_id");
                             DateTime dateBorrow = reader.GetDateTime("date_borrow").Date;
+                            DateTime dateReturn = reader.GetDateTime("date_borrow").Date;
 
-                            IssueReturnBook issueReturnBook = new IssueReturnBook(id, student.studentId, bookId, dateBorrow);
+                            IssueReturnBook issueReturnBook = new IssueReturnBook(id, student.studentId, bookId, dateBorrow, dateReturn);
 
                             issueReturnBookList.Add(issueReturnBook);
                         }
@@ -65,13 +66,14 @@ namespace LibraryManagementSystem
                 {
                     conn.Open();
                     // Corrected query with subquery for student ID
-                    string query = "INSERT INTO issued_books (student_id, book_id, date_borrow) VALUES ((SELECT id FROM students WHERE student_id = @StudentId), @BookId, @DateBorrow);";
+                    string query = "INSERT INTO issued_books (student_id, book_id, date_borrow, date_return) VALUES ((SELECT id FROM students WHERE student_id = @StudentId), @BookId, @DateBorrow, @DateReturn);";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     // Add parameters to avoid SQL injection
                     cmd.Parameters.AddWithValue("@StudentId", newIssueReturnBook.studentId);
                     cmd.Parameters.AddWithValue("@BookId", newIssueReturnBook.bookId);
                     cmd.Parameters.AddWithValue("@DateBorrow", newIssueReturnBook.dateBorrow);
+                    cmd.Parameters.AddWithValue("@DateReturn", newIssueReturnBook.dateReturn);
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
@@ -125,6 +127,7 @@ namespace LibraryManagementSystem
                             student_id INT NOT NULL,
                             book_id INT NOT NULL,
                             date_borrow TIMESTAMP NOT NULL,
+                            date_return TIMESTAMP NULL,
                             CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
                             CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE NO ACTION ON UPDATE NO ACTION
                         );
