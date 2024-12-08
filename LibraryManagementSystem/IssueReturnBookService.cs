@@ -15,7 +15,7 @@ namespace LibraryManagementSystem
             connectionString = connString;
             studentService = new StudentService(connString);
 
-            this.CreateIssuedBooksTable();
+            this.CreateTable();
         }
 
         public List<IssueReturnBook> List()
@@ -110,7 +110,7 @@ namespace LibraryManagementSystem
             }
         }
 
-        private void CreateIssuedBooksTable()
+        private void CreateTable()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
