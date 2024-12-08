@@ -13,6 +13,8 @@ namespace LibraryManagementSystem
         public StudentService(string connString)
         {
             connectionString = connString;
+
+            this.CreateTable();
         }
 
         public List<Student> List()
@@ -239,6 +241,43 @@ namespace LibraryManagementSystem
                 catch (Exception ex)
                 {
                     // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        private void CreateTable()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // SQL query to create the issued_books table with foreign key constraints
+                    string createTableQuery = @"
+                        CREATE TABLE IF NOT EXISTS students (
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            student_id INT NOT NULL,
+                            year_level INT NOT NULL,
+                            section VARCHAR(255) NOT NULL,
+                            first_name VARCHAR(255) NOT NULL,
+                            middle_name VARCHAR(255) NOT NULL,
+                            last_name VARCHAR(255) NOT NULL,
+                            contact_no VARCHAR(255) NOT NULL,
+                            email VARCHAR(255) NOT NULL,
+                            address VARCHAR(255) NOT NULL
+                        );
+                    ";
+
+                    // Execute the table creation query
+                    MySqlCommand cmd = new MySqlCommand(createTableQuery, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle and log the exception
                     Console.WriteLine("Database error: " + ex.Message);
                     throw;
                 }
