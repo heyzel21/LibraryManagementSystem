@@ -11,6 +11,8 @@ namespace LibraryManagementSystem
         public BookService(string connString)
         {
             connectionString = connString;
+
+            this.CreateTable();
         }
 
         public List<Book> List()
@@ -172,6 +174,38 @@ namespace LibraryManagementSystem
                 }
 
                 return book;
+            }
+        }
+
+        private void CreateTable()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // SQL query to create the issued_books table with foreign key constraints
+                    string createTableQuery = @"
+                        CREATE TABLE IF NOT EXISTS books (
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            title VARCHAR(255) NOT NULL,
+                            author VARCHAR(255) NOT NULL,
+                            published_date TIMESTAMP NOT NULL,
+                            quantity INT NOT NULL
+                        );
+                    ";
+
+                    // Execute the table creation query
+                    MySqlCommand cmd = new MySqlCommand(createTableQuery, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle and log the exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
             }
         }
     }
