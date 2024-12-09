@@ -5,11 +5,15 @@ namespace LibraryManagementSystem
 {
     public partial class Dashboard : Form
     {
+        private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
+        private BookService bookService;
         public Dashboard()
         {
             InitializeComponent();
             this.HidePanels();
             this.dashboardPanel.Visible = true;
+
+            this.bookService = new BookService(connectionString);
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e)
