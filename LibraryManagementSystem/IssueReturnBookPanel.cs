@@ -89,26 +89,10 @@ namespace LibraryManagementSystem
 
         }
 
-        private void RefreshBookDataGridView()
+        public void RefreshBookDataGridView()
         {
             issueReturnBooksDataGridView.DataSource = this.issueReturnBookService.List();
-            issueReturnBooksDataGridView.CellFormatting += DataGridView1_CellFormatting;
             this.ResetForm();
-        }
-
-        private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Check if this is the date_return column
-            if (issueReturnBooksDataGridView.Columns[e.ColumnIndex].Name == "dateReturn" && e.Value != null)
-            {
-                DateTime now = DateTime.Now;
-                TimeSpan difference = Convert.ToDateTime(e.Value).Date - now.Date;
-
-                if (difference.Days < 0)
-                {
-                    e.CellStyle.ForeColor = Color.Red;
-                }
-            }
         }
 
         private void BooksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,8 +107,6 @@ namespace LibraryManagementSystem
             this.selectedId = id;
             this.studentIdNumericUpDown.Value = student_id;
             this.bookIdNumericUpDown.Value = book_id;
-
-            this.deleteButton.Enabled = true;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -137,8 +119,6 @@ namespace LibraryManagementSystem
             this.selectedId = 0;
             this.studentIdNumericUpDown.Value = 0;
             this.bookIdNumericUpDown.Value = 0;
-
-            this.deleteButton.Enabled = false;
         }
 
         private void ViewStudentButton_Click(object sender, EventArgs e)
@@ -169,6 +149,30 @@ namespace LibraryManagementSystem
 
             bookDetails = new BookDetails(book);
             bookDetails.Show();
+        }
+
+        private void ReturnBook_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isConfirmed = this.promptService.ShowConfirmation("Mark this as returned record?");
+                if (isConfirmed)
+                {
+                    this.issueReturnBookService.Return(this.selectedId);
+                    this.RefreshBookDataGridView();
+
+                    MessageBox.Show("Record updated succesfully!");
+                }
+                else
+                {
+                    this.ResetForm();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

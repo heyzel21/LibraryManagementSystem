@@ -45,6 +45,7 @@ namespace LibraryManagementSystem
             this.manageBookPanel = new LibraryManagementSystem.ManageBookPanel();
             this.manageStudentPanel = new LibraryManagementSystem.ManageStudentPanel();
             this.issueReturnBookPanel = new LibraryManagementSystem.IssueReturnBookPanel();
+            this.managePenaltyPanel = new LibraryManagementSystem.ManagePenaltyPanel();
             this.headerPanel.SuspendLayout();
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
@@ -102,6 +103,7 @@ namespace LibraryManagementSystem
             this.managePenaltiesBtn.Text = "MANAGE PENALTIES";
             this.managePenaltiesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.managePenaltiesBtn.UseVisualStyleBackColor = false;
+            this.managePenaltiesBtn.Click += new System.EventHandler(this.ManagePenaltyBtn_Click);
             // 
             // issueReturnBtn
             // 
@@ -234,6 +236,14 @@ namespace LibraryManagementSystem
             this.issueReturnBookPanel.Size = new System.Drawing.Size(744, 503);
             this.issueReturnBookPanel.TabIndex = 0;
             // 
+            // managePenaltyPanel
+            // 
+            this.managePenaltyPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.managePenaltyPanel.Location = new System.Drawing.Point(237, 60);
+            this.managePenaltyPanel.Name = "managePenaltyPanel";
+            this.managePenaltyPanel.Size = new System.Drawing.Size(744, 503);
+            this.managePenaltyPanel.TabIndex = 0;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +253,7 @@ namespace LibraryManagementSystem
             this.Controls.Add(this.manageBookPanel);
             this.Controls.Add(this.manageStudentPanel);
             this.Controls.Add(this.issueReturnBookPanel);
+            this.Controls.Add(this.managePenaltyPanel);
             this.Controls.Add(this.navPanel);
             this.Controls.Add(this.headerPanel);
             this.Name = "Dashboard";
@@ -279,5 +290,6 @@ namespace LibraryManagementSystem
         private ManageBookPanel manageBookPanel;
         private ManageStudentPanel manageStudentPanel;
         private IssueReturnBookPanel issueReturnBookPanel;
+        private ManagePenaltyPanel managePenaltyPanel;
     }
 }
