@@ -39,7 +39,7 @@ namespace LibraryManagementSystem
                             Student student = this.studentService.GetById(studentId);
                             int bookId = reader.GetInt32("book_id");
                             DateTime dateBorrow = reader.GetDateTime("date_borrow").Date;
-                            DateTime dateReturn = reader.GetDateTime("date_borrow").Date;
+                            DateTime dateReturn = reader.GetDateTime("date_return").Date;
 
                             IssueReturnBook issueReturnBook = new IssueReturnBook(id, student.studentId, bookId, dateBorrow, dateReturn);
 

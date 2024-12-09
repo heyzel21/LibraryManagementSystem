@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
@@ -91,7 +92,23 @@ namespace LibraryManagementSystem
         private void RefreshBookDataGridView()
         {
             issueReturnBooksDataGridView.DataSource = this.issueReturnBookService.List();
+            issueReturnBooksDataGridView.CellFormatting += DataGridView1_CellFormatting;
             this.ResetForm();
+        }
+
+        private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if this is the date_return column
+            if (issueReturnBooksDataGridView.Columns[e.ColumnIndex].Name == "dateReturn" && e.Value != null)
+            {
+                DateTime now = DateTime.Now;
+                TimeSpan difference = Convert.ToDateTime(e.Value).Date - now.Date;
+
+                if (difference.Days < 0)
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+            }
         }
 
         private void BooksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
