@@ -99,6 +99,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Penalty.cs" />
+    <Compile Include="ManagePenaltyPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManagePenaltyPanel.Designer.cs">
+      <DependentUpon>ManagePenaltyPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="IssueReturnBookService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="Dashboard.cs">
@@ -163,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePenaltyPanel.resx">
+      <DependentUpon>ManagePenaltyPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

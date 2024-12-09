@@ -40,10 +40,49 @@ namespace LibraryManagementSystem
                             int bookId = reader.GetInt32("book_id");
                             DateTime dateBorrow = reader.GetDateTime("date_borrow").Date;
                             DateTime dateReturn = reader.GetDateTime("date_return").Date;
+                            bool isReturned = reader.GetBoolean("is_returned");
 
-                            IssueReturnBook issueReturnBook = new IssueReturnBook(id, student.studentId, bookId, dateBorrow, dateReturn);
+                            IssueReturnBook issueReturnBook = new IssueReturnBook(id, student.studentId, bookId, dateBorrow, dateReturn, isReturned);
 
                             issueReturnBookList.Add(issueReturnBook);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+
+            return issueReturnBookList;
+        }
+
+        public List<Penalty> ListDue()
+        {
+            List<Penalty> issueReturnBookList = new List<Penalty>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM issued_books WHERE date_return < CURRENT_DATE AND (is_returned = FALSE OR is_penalty_paid = TRUE)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id");
+                            int studentId = reader.GetInt32("student_id");
+                            Student student = this.studentService.GetById(studentId);
+                            bool isPenaltyPaid = reader.GetBoolean("is_penalty_paid");
+
+                            Penalty penalty = new Penalty(id, student.studentId, isPenaltyPaid);
+
+                            issueReturnBookList.Add(penalty);
                         }
                     }
                 }
@@ -112,6 +151,42 @@ namespace LibraryManagementSystem
             }
         }
 
+        public void Return(int id, bool isPenaltyApplied = false)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "";
+
+                    if (isPenaltyApplied)
+                    {
+                        query = "UPDATE issued_books SET is_penalty_paid = TRUE, is_returned = TRUE WHERE id = @Id";
+                    }
+                    else
+                    {
+                        query = "UPDATE issued_books SET is_returned = TRUE WHERE id = @Id";
+                    }
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Add parameters to the query to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle and log exception
+                    Console.WriteLine("Database error: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
         private void CreateTable()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -128,6 +203,8 @@ namespace LibraryManagementSystem
                             book_id INT NOT NULL,
                             date_borrow TIMESTAMP NOT NULL,
                             date_return TIMESTAMP NULL,
+                            is_returned BOOLEAN NOT NULL DEFAULT FALSE,
+                            is_penalty_paid BOOLEAN NOT NULL DEFAULT FALSE,
                             CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
                             CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE NO ACTION ON UPDATE NO ACTION
                         );

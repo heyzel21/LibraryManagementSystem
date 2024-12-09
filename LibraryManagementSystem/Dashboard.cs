@@ -32,7 +32,15 @@ namespace LibraryManagementSystem
         private void IssueReturnBtn_Click(object sender, EventArgs e)
         {
             this.HidePanels();
+            this.issueReturnBookPanel.RefreshBookDataGridView();
             this.issueReturnBookPanel.Visible = true;
+        }
+
+        private void ManagePenaltyBtn_Click(object sender, EventArgs e)
+        {
+            this.HidePanels();
+            this.managePenaltyPanel.RefreshBookDataGridView();
+            this.managePenaltyPanel.Visible = true;
         }
 
         private void HidePanels()
