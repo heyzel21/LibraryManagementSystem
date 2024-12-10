@@ -28,7 +28,7 @@ namespace LibraryManagementSystem
             this.PopulateData();
         }
 
-        private void PopulateData()
+        public void PopulateData()
         {
             try
             {
