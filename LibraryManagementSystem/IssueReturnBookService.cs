@@ -81,14 +81,16 @@ namespace LibraryManagementSystem
                             Student student = this.studentService.GetById(studentId);
                             bool isPenaltyPaid = reader.GetBoolean("is_penalty_paid");
                             DateTime dateReturn = reader.GetDateTime("date_return").Date;
+                            double daysOverdue = 0;
                             double penaltyAmount = 0;
 
                             if (!isPenaltyPaid)
                             {
-                                penaltyAmount = Math.Floor((DateTime.Now - dateReturn).TotalDays) * this.penalty_amount_rule;
+                                daysOverdue = Math.Floor((DateTime.Now - dateReturn).TotalDays);
+                                penaltyAmount = daysOverdue * this.penalty_amount_rule;
                             }
 
-                            Penalty penalty = new Penalty(id, student.studentId, isPenaltyPaid, penaltyAmount);
+                            Penalty penalty = new Penalty(id, student.studentId, isPenaltyPaid, daysOverdue, penaltyAmount);
 
                             issueReturnBookList.Add(penalty);
                         }
