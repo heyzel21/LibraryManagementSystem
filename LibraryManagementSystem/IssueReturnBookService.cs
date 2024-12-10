@@ -102,21 +102,6 @@ namespace LibraryManagementSystem
                 }
             }
 
-            //int penaltyPaid = 0;
-            //int penaltyPending = 0;
-
-            //for (int i = 0; i < issueReturnBookList.Count; i++)
-            //{
-            //    if (issueReturnBookList[i].IsPenaltyPaid == "Yes")
-            //    {
-            //        penaltyPaid++;
-            //    } 
-            //    else
-            //    {
-            //        penaltyPending++;
-            //    }
-            //}
-
             return issueReturnBookList;
         }
 
