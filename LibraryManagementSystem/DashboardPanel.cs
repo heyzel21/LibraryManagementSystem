@@ -36,12 +36,35 @@ namespace LibraryManagementSystem
                 this.numberOfBooksPlaceholder.Text = this.bookService.List().Count.ToString();
                 this.issuedBooksPlaceholder.Text = this.issueReturnBookService.List().Count.ToString();
                 this.noOfstudentPenaltyPlaceholder.Text = this.issueReturnBookService.ListDue().Count.ToString();
+
+                this.CountPendingAndPaid();
             }
             catch (Exception ex) 
             {
                 Console.Write(ex.ToString());
             }
 
+        }
+
+        private void CountPendingAndPaid()
+        {
+            int penaltyPaid = 0;
+            int penaltyPending = 0;
+
+            for (int i = 0; i < this.issueReturnBookService.ListDue().Count; i++)
+            {
+                if (this.issueReturnBookService.ListDue()[i].IsPenaltyPaid == "Yes")
+                {
+                    penaltyPaid++;
+                }
+                else
+                {
+                    penaltyPending++;
+                }
+            }
+
+            this.paidPlaceholder.Text = penaltyPaid.ToString();
+            this.unpaidPlaceholder.Text = penaltyPending.ToString();
         }
     }
 }
