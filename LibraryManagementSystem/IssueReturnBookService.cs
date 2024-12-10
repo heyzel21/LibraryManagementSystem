@@ -7,6 +7,7 @@ namespace LibraryManagementSystem
 {
     public class IssueReturnBookService
     {
+        private readonly int penalty_amount_rule = 5;
         private readonly string connectionString;
         private readonly StudentService studentService;
 
@@ -79,8 +80,15 @@ namespace LibraryManagementSystem
                             int studentId = reader.GetInt32("student_id");
                             Student student = this.studentService.GetById(studentId);
                             bool isPenaltyPaid = reader.GetBoolean("is_penalty_paid");
+                            DateTime dateReturn = reader.GetDateTime("date_return").Date;
+                            double penaltyAmount = 0;
 
-                            Penalty penalty = new Penalty(id, student.studentId, isPenaltyPaid);
+                            if (!isPenaltyPaid)
+                            {
+                                penaltyAmount = Math.Floor((DateTime.Now - dateReturn).TotalDays) * this.penalty_amount_rule;
+                            }
+
+                            Penalty penalty = new Penalty(id, student.studentId, isPenaltyPaid, penaltyAmount);
 
                             issueReturnBookList.Add(penalty);
                         }
