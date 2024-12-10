@@ -56,6 +56,10 @@ namespace LibraryManagementSystem
             this.numUsersPanel = new System.Windows.Forms.Panel();
             this.noOfStudentsPlaceholder = new System.Windows.Forms.Label();
             this.numUsersLbl = new System.Windows.Forms.Label();
+            this.paidLabel = new System.Windows.Forms.Label();
+            this.unpaidLabel = new System.Windows.Forms.Label();
+            this.paidPlaceholder = new System.Windows.Forms.Label();
+            this.unpaidPlaceholder = new System.Windows.Forms.Label();
             this.data2Panel.SuspendLayout();
             this.data1Panel.SuspendLayout();
             this.numUsersPenaltyPanel.SuspendLayout();
@@ -201,6 +205,10 @@ namespace LibraryManagementSystem
             // numUsersPenaltyPanel
             // 
             this.numUsersPenaltyPanel.BackColor = System.Drawing.Color.SkyBlue;
+            this.numUsersPenaltyPanel.Controls.Add(this.unpaidPlaceholder);
+            this.numUsersPenaltyPanel.Controls.Add(this.paidPlaceholder);
+            this.numUsersPenaltyPanel.Controls.Add(this.unpaidLabel);
+            this.numUsersPenaltyPanel.Controls.Add(this.paidLabel);
             this.numUsersPenaltyPanel.Controls.Add(this.noOfstudentPenaltyPlaceholder);
             this.numUsersPenaltyPanel.Controls.Add(this.noOfStudentsPenaltyLbl);
             this.numUsersPenaltyPanel.Location = new System.Drawing.Point(547, 15);
@@ -211,10 +219,10 @@ namespace LibraryManagementSystem
             // noOfstudentPenaltyPlaceholder
             // 
             this.noOfstudentPenaltyPlaceholder.AutoSize = true;
-            this.noOfstudentPenaltyPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noOfstudentPenaltyPlaceholder.Location = new System.Drawing.Point(55, 51);
+            this.noOfstudentPenaltyPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noOfstudentPenaltyPlaceholder.Location = new System.Drawing.Point(46, 38);
             this.noOfstudentPenaltyPlaceholder.Name = "noOfstudentPenaltyPlaceholder";
-            this.noOfstudentPenaltyPlaceholder.Size = new System.Drawing.Size(68, 73);
+            this.noOfstudentPenaltyPlaceholder.Size = new System.Drawing.Size(51, 55);
             this.noOfstudentPenaltyPlaceholder.TabIndex = 4;
             this.noOfstudentPenaltyPlaceholder.Text = "0";
             // 
@@ -322,6 +330,46 @@ namespace LibraryManagementSystem
             this.numUsersLbl.TabIndex = 0;
             this.numUsersLbl.Text = "NO. OF STUDENTS";
             // 
+            // paidLabel
+            // 
+            this.paidLabel.AutoSize = true;
+            this.paidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidLabel.Location = new System.Drawing.Point(12, 99);
+            this.paidLabel.Name = "paidLabel";
+            this.paidLabel.Size = new System.Drawing.Size(47, 20);
+            this.paidLabel.TabIndex = 5;
+            this.paidLabel.Text = "PAID";
+            // 
+            // unpaidLabel
+            // 
+            this.unpaidLabel.AutoSize = true;
+            this.unpaidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unpaidLabel.Location = new System.Drawing.Point(68, 99);
+            this.unpaidLabel.Name = "unpaidLabel";
+            this.unpaidLabel.Size = new System.Drawing.Size(70, 20);
+            this.unpaidLabel.TabIndex = 6;
+            this.unpaidLabel.Text = "UNPAID";
+            // 
+            // paidPlaceholder
+            // 
+            this.paidPlaceholder.AutoSize = true;
+            this.paidPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidPlaceholder.Location = new System.Drawing.Point(25, 119);
+            this.paidPlaceholder.Name = "paidPlaceholder";
+            this.paidPlaceholder.Size = new System.Drawing.Size(18, 20);
+            this.paidPlaceholder.TabIndex = 7;
+            this.paidPlaceholder.Text = "0";
+            // 
+            // unpaidPlaceholder
+            // 
+            this.unpaidPlaceholder.AutoSize = true;
+            this.unpaidPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unpaidPlaceholder.Location = new System.Drawing.Point(96, 119);
+            this.unpaidPlaceholder.Name = "unpaidPlaceholder";
+            this.unpaidPlaceholder.Size = new System.Drawing.Size(18, 20);
+            this.unpaidPlaceholder.TabIndex = 8;
+            this.unpaidPlaceholder.Text = "0";
+            // 
             // DashboardPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,5 +423,9 @@ namespace LibraryManagementSystem
         private Label noOfstudentPenaltyPlaceholder;
         private Label numberOfBooksPlaceholder;
         private Label issuedBooksPlaceholder;
+        private Label unpaidLabel;
+        private Label paidLabel;
+        private Label paidPlaceholder;
+        private Label unpaidPlaceholder;
     }
 }

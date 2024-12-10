@@ -19,6 +19,7 @@ namespace LibraryManagementSystem
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             this.HidePanels();
+            this.dashboardPanel.PopulateData();
             this.dashboardPanel.Visible = true;
         }
         private void ManageBooksBtn_Click(object sender, EventArgs e)

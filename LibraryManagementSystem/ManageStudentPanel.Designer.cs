@@ -70,6 +70,7 @@ namespace LibraryManagementSystem
             this.studentsDataGridView.Location = new System.Drawing.Point(14, 39);
             this.studentsDataGridView.Name = "studentsDataGridView";
             this.studentsDataGridView.ReadOnly = true;
+            this.studentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsDataGridView.Size = new System.Drawing.Size(693, 224);
             this.studentsDataGridView.TabIndex = 0;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentsDataGridView_CellClick);

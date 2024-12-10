@@ -58,6 +58,7 @@ namespace LibraryManagementSystem
             this.booksDataGridView.Location = new System.Drawing.Point(14, 39);
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
+            this.booksDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.booksDataGridView.Size = new System.Drawing.Size(487, 442);
             this.booksDataGridView.TabIndex = 0;
             this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellClick);
