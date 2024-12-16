@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 
 namespace LibraryManagementSystem
 {
@@ -34,6 +35,9 @@ namespace LibraryManagementSystem
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.showHidePasswordButton = new System.Windows.Forms.Button();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -71,6 +75,9 @@ namespace LibraryManagementSystem
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Maroon;
+            this.panel2.Controls.Add(this.showHidePasswordButton);
+            this.panel2.Controls.Add(this.passwordLabel);
+            this.panel2.Controls.Add(this.userLabel);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Controls.Add(this.txtPassword);
@@ -80,12 +87,44 @@ namespace LibraryManagementSystem
             this.panel2.Size = new System.Drawing.Size(290, 411);
             this.panel2.TabIndex = 2;
             // 
+            // showHidePasswordButton
+            // 
+            this.showHidePasswordButton.Location = new System.Drawing.Point(226, 209);
+            this.showHidePasswordButton.Name = "showHidePasswordButton";
+            this.showHidePasswordButton.Size = new System.Drawing.Size(22, 21);
+            this.showHidePasswordButton.TabIndex = 6;
+            this.showHidePasswordButton.Text = "s";
+            this.showHidePasswordButton.UseVisualStyleBackColor = true;
+            this.showHidePasswordButton.Click += new System.EventHandler(this.ShowHidePasswordButton_Click);
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.passwordLabel.ForeColor = System.Drawing.Color.White;
+            this.passwordLabel.Location = new System.Drawing.Point(52, 212);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(52, 13);
+            this.passwordLabel.TabIndex = 5;
+            this.passwordLabel.Text = "password";
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.BackColor = System.Drawing.Color.Transparent;
+            this.userLabel.ForeColor = System.Drawing.Color.White;
+            this.userLabel.Location = new System.Drawing.Point(52, 186);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(53, 13);
+            this.userLabel.TabIndex = 4;
+            this.userLabel.Text = "username";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(44, 147);
+            this.label2.Location = new System.Drawing.Point(45, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(211, 20);
             this.label2.TabIndex = 3;
@@ -93,7 +132,7 @@ namespace LibraryManagementSystem
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(116, 232);
+            this.btnLogin.Location = new System.Drawing.Point(111, 244);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -103,14 +142,15 @@ namespace LibraryManagementSystem
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(83, 206);
+            this.txtPassword.Location = new System.Drawing.Point(111, 209);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(137, 20);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(83, 180);
+            this.txtUsername.Location = new System.Drawing.Point(111, 183);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(137, 20);
             this.txtUsername.TabIndex = 0;
@@ -144,6 +184,9 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button showHidePasswordButton;
     }
 }
 

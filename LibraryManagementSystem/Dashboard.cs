@@ -7,9 +7,12 @@ namespace LibraryManagementSystem
     {
         private readonly string connectionString = "Server=localhost;Database=lms_db;User ID=root;Password=;";
         private BookService bookService;
-        public Dashboard()
+        private Login login;
+
+        public Dashboard(Login login)
         {
             InitializeComponent();
+            this.login = login;
             this.HidePanels();
             this.dashboardPanel.Visible = true;
 
@@ -54,6 +57,12 @@ namespace LibraryManagementSystem
             this.manageBookPanel.Visible = false;
             this.manageStudentPanel.Visible = false;
             this.issueReturnBookPanel.Visible = false;
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.login.Visible = true;
         }
     }
 }

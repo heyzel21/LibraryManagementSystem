@@ -46,6 +46,7 @@ namespace LibraryManagementSystem
             this.manageStudentPanel = new LibraryManagementSystem.ManageStudentPanel();
             this.issueReturnBookPanel = new LibraryManagementSystem.IssueReturnBookPanel();
             this.managePenaltyPanel = new LibraryManagementSystem.ManagePenaltyPanel();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.navPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
@@ -65,6 +66,7 @@ namespace LibraryManagementSystem
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.headerPanel.Controls.Add(this.logoutButton);
             this.headerPanel.Controls.Add(this.appNameLbl);
             this.headerPanel.Location = new System.Drawing.Point(0, -3);
             this.headerPanel.Name = "headerPanel";
@@ -244,6 +246,23 @@ namespace LibraryManagementSystem
             this.managePenaltyPanel.Size = new System.Drawing.Size(744, 503);
             this.managePenaltyPanel.TabIndex = 0;
             // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(49)))), ((int)(((byte)(109)))));
+            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Location = new System.Drawing.Point(893, 15);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.logoutButton.Size = new System.Drawing.Size(78, 35);
+            this.logoutButton.TabIndex = 9;
+            this.logoutButton.Text = "LOGOUT";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +310,6 @@ namespace LibraryManagementSystem
         private ManageStudentPanel manageStudentPanel;
         private IssueReturnBookPanel issueReturnBookPanel;
         private ManagePenaltyPanel managePenaltyPanel;
+        private Button logoutButton;
     }
 }
