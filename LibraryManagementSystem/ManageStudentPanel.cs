@@ -46,8 +46,6 @@ namespace LibraryManagementSystem
                 string email = this.emailTextBox.Text;
                 string address = this.addressTextBox.Text;
 
-                Console.WriteLine(studentId);
-
                 Student newStudent = new Student(studentId, yearLevel, section, firstName, middletName, lastName, contactNo, email, address);
 
                 bool isConfirmed = this.promptService.ShowConfirmation("Do you want to add this student details?");
