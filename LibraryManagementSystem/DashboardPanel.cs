@@ -32,10 +32,20 @@ namespace LibraryManagementSystem
         {
             try
             {
-                this.noOfStudentsPlaceholder.Text = this.studentService.List().Count.ToString();
-                this.numberOfBooksPlaceholder.Text = this.bookService.List().Count.ToString();
-                this.issuedBooksPlaceholder.Text = this.issueReturnBookService.List().Count.ToString();
-                this.noOfstudentPenaltyPlaceholder.Text = this.issueReturnBookService.ListDue().Count.ToString();
+                int studentCount = this.studentService.List().Count;
+                int booksCount = this.bookService.List().Count;
+                int issuedBooksCount = this.bookService.List().Count;
+                int studentsPenaltyCount = this.issueReturnBookService.ListDue().Count;
+
+                this.noOfStudentsPlaceholder.Text = studentCount.ToString();
+                this.numberOfBooksPlaceholder.Text = booksCount.ToString();
+                this.issuedBooksPlaceholder.Text = issuedBooksCount.ToString();
+                this.noOfstudentPenaltyPlaceholder.Text = studentsPenaltyCount.ToString();
+
+                this.UpdateBarPanel(this.studentsBarPanel, this.studentPercentageLabel, studentCount);
+                this.UpdateBarPanel(this.booksBarPanel, this.booksPercentageLabel, booksCount);
+                this.UpdateBarPanel(this.issuedBooksBarPanel, this.issuedBooksPercentageLabel, issuedBooksCount);
+                this.UpdateBarPanel(this.penaltiesBarPanel, this.penaltyPercentageLabel, studentsPenaltyCount);
 
                 this.CountPendingAndPaid();
             }
@@ -43,7 +53,16 @@ namespace LibraryManagementSystem
             {
                 Console.Write(ex.ToString());
             }
+        }
 
+        private void UpdateBarPanel(Panel panelBar, Label percentageLabel, int quantity)
+        {
+            float max = 1000;
+            float percentage = (quantity / max) * 100;
+            int fill = (int)(600 * (percentage / 100));
+
+            percentageLabel.Text = Math.Round(percentage).ToString() + "%";
+            panelBar.Size = new System.Drawing.Size(fill, 29);
         }
 
         private void CountPendingAndPaid()

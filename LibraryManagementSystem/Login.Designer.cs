@@ -93,7 +93,7 @@ namespace LibraryManagementSystem
             this.showHidePasswordButton.Name = "showHidePasswordButton";
             this.showHidePasswordButton.Size = new System.Drawing.Size(22, 21);
             this.showHidePasswordButton.TabIndex = 6;
-            this.showHidePasswordButton.Text = "s";
+            this.showHidePasswordButton.Text = "●";
             this.showHidePasswordButton.UseVisualStyleBackColor = true;
             this.showHidePasswordButton.Click += new System.EventHandler(this.ShowHidePasswordButton_Click);
             // 
